@@ -1,0 +1,24 @@
+/* especifidad 1 */
+body{
+    display: grid;
+    grid-template-areas: 
+            "header"
+            "content"
+            "footer";
+    grid-row-gap: 20px;
+}
+
+/* especifidad 1 */
+header{
+    grid-area: header;
+}
+
+/* especifidad 1 */
+main{
+    grid-area: content;
+}
+
+/* especifidad 1 */
+footer{
+    grid-area: footer;
+}
