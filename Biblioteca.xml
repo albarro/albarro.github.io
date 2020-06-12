@@ -78,6 +78,16 @@ xmlns="http://tempuri.org/personajes">
             </nivelMagia>
         </magias>
 
+        <referencias>
+            <referencia>Prueba</referencia>
+            <referencia>stackoverflow.com</referencia>
+            <referencia>null</referencia>
+            <referencia>imaginacion</referencia>
+            <referencia>errores</referencia>
+            <referencia>fallos</referencia>
+            <referencia>test</referencia>
+            <referencia>cosas</referencia>
+        </referencias>
         <autor>Desarrollador</autor>
     </personaje>
 
@@ -179,7 +189,6 @@ xmlns="http://tempuri.org/personajes">
             </nivelMagia>
         </magias>
 
-        <autor>Desarrollador</autor>
     </personaje>
 
 </personajes>
