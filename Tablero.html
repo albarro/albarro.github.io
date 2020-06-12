@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+    <head>
+        <!-- Datos que describen el documento -->
+        <meta charset="UTF-8" />
+        <meta name="author" content="UO251322" />
+        <meta name="description" content="Tablero de juego" />
+        <meta name="keywords" content="D&D, dungeons, dragons, juego, tablero" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <title>Bienvenido</title>
+        <base href="index.html" />
+        <link rel="stylesheet" type="text/css" href="estilo.css" />
+        <link rel="stylesheet" type="text/css" href="grid-main.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/LectorXml.js"></script>
+    </head>
+    
+    <body>
+        <!-- Datos con el contenidos que aparece en el navegador -->
+    
+        <header>
+            <h1>....</h1>
+    
+    
+            <nav>
+                <ul>
+                    <li>
+                        <a title="Enlace a la pagina inicial" tabindex="1" accesskey="I" 
+                        href="index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a title="Enlace al tutorial" tabindex="2" accesskey="T" 
+                        href="Tutorial.html">Tutorial</a>
+                    </li>
+                    <li>
+                        <a title="Enlace a la biblioteca de personajes" tabindex="3" accesskey="B"
+                            href="Biblioteca.xml">Biblioteca</a>
+                    </li>
+                    <li>
+                        <a title="Enlace al tablero" tabindex="4" accesskey="E" 
+                        href="Tablero.html">Tablero</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+    <main>
+        <p>Seleccione un archivo: </p>
+        <input type="file" id="archivo" onchange="lector.leerArchivo(this.files);">
+
+        <p id="error">Error(Archivo no válido)</p>
+
+        <section>
+            <h2 id="nombreArchivo"></h2>
+            <p id="tamañoArchivo"></p>
+            <p id="tipoArchivo"></p>
+            <p id="ultimaModificacion"></p>
+            <p>Contenido del archivo de texto:</p>
+            <pre id="areaTexto"></pre>
+        </section>
+
+        <canvas>
+            
+        </canvas>
+    </main>
+
+    <footer>
+        <a href="https://validator.w3.org/check?uri=referer">
+            <img src="https://www.w3.org/html/logo/badge/html5-badge-h-solo.png" alt="HTML5 Válido" title="HTML5 Válido"
+                height="64" width="63" />
+        </a>
+        
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+            <img style="border:0;width:88px;height:31px"
+                src="http://jigsaw.w3.org/css-validator/images/vcss"
+                alt="¡CSS Válido!" />
+        </a>
+    </footer>
+
+</body>

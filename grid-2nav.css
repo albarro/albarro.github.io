@@ -13,7 +13,8 @@ header{
     grid-area: header;
     display: grid;
     grid-template-areas: 
-            "logo nav";
+            "logo navPrincipal"
+            "logo navSecundario";
 }
 
 /* especifidad 1 */
@@ -23,7 +24,12 @@ h1{
 
 /* especifidad 1 */
 nav{
-    grid-area: nav;
+    grid-area: navPrincipal;
+}
+
+/* especifidad 1 */
+nav:last-child {
+    grid-area: navSecundario;
 }
 
 /* especifidad 1 */
