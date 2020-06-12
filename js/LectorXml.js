@@ -1,30 +1,24 @@
 class Lector {
   constructor() {}
 
-  leerArchivo(files) {
-    var archivo = files[0];
-    var tipoXML = "text.xml";
-    if (archivo.type.match(tipoXML)) {
-      this.nombre = "Nombre del archivo: " + archivo.name;
-      this.tamaño = "Tamaño del archivo: " + archivo.size + " bytes";
-      this.tipo = "Tipo del archivo: " + archivo.type;
-      this.modificacion =
-        "Fecha de la última modificación: " + archivo.lastModifiedDate;
+  cargarDatos() {
+    var elem = this;
+    var xhttp = new XMLHttpRequest();
 
-        var elem = this;
-        var lector = new FileReader();
-        lector.onload = function (evento) {
-            elem.areaVisualizacion =  elem.leerXml(lector.result);
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            elem.leerXml(this)
             elem.cargarSection();
-        }
-        lector.readAsText(archivo);
+        } else {
+          elem.ocultarTexto();
+          $("#error").show();
+      }
+    };
 
+    xhttp.open("GET", "https://albarro.github.io/Biblioteca.xml", true);
+    xhttp.send();
+}
 
-    } else {
-      this.ocultarTexto();
-      $("#error").show();
-    }
-  }
   ocultarTexto() {
     $("#error").hide();
     $("section").hide();
@@ -34,34 +28,110 @@ class Lector {
     this.ocultarTexto();
     $("section").show();
 
-    $("#nombreArchivo").text(this.nombre);
-    $("#tamañoArchivo").text(this.tamaño);
-    $("#tipoArchivo").text(this.tipo);
-    $("#ultimaModificacion").text(this.modificacion);
     $("#areaTexto").text(this.areaVisualizacion);
   }
 
   leerXml(xml) {
 
-      var xmldoc = xml.responseXML;
+    var xmldoc = xml.responseXML;
 
-      var stringDatos =  xmldoc.getElementsByTagName('personaje').item(0).getAttribute('nombre');
-     
-      return stringDatos;
 
-    var parser = new DOMParser();
-    var xmlDoc = parser.parseFromString(xml, "text/xml");
-
-    var personajes = xmlDoc.getElementsByTagName("personaje");
+    var personajes = xmldoc.getElementsByTagName('personaje');
 
     var texto = "Personajes: \n";
 
     for (let i = 0; i < personajes.length; i++) {
-      texto += personajes[i].nodeValue;
-      
-    }
 
-    return texto;
+      var personaje = personajes.item(i);
+
+      var nombre = personaje.getAttribute('nombre');
+      var raza = personaje.getElementsByTagName('raza').item(0).firstChild.data;
+      var descripcion = personaje.getElementsByTagName('descripcion').item(0).firstChild.data;
+      var transfondo = personaje.getElementsByTagName('transfondo').item(0).firstChild.data;
+      var alinemiento =personaje.getElementsByTagName('alinemiento').item(0).firstChild.data;
+
+      var imagen = personaje.getElementsByTagName('imagen').item(0).firstChild.data;
+
+      var vida = personaje.getElementsByTagName('vida').item(0).firstChild.data;
+      var movimiento = personaje.getElementsByTagName('movimiento').item(0).firstChild.data;
+
+      var nivel = personaje.getElementsByTagName('nivel').item(0).firstChild.data;
+      var clase = personaje.getElementsByTagName('clase').item(0).firstChild.data;
+      var experiencia = personaje.getElementsByTagName('experiencia').item(0).firstChild.data;
+      var movimiento = personaje.getElementsByTagName('movimiento').item(0).firstChild.data;
+
+
+      var atributos = personaje.getElementsByTagName('atributos').item(0);
+
+      var fuerza = atributos.getElementsByTagName('fuerza').item(0).firstChild.data;
+      var destreza = atributos.getElementsByTagName('destreza').item(0).firstChild.data;
+      var constitucion = atributos.getElementsByTagName('constitucion').item(0).firstChild.data;
+      var inteligencia = atributos.getElementsByTagName('inteligencia').item(0).firstChild.data;
+      var sabiduria = atributos.getElementsByTagName('sabiduria').item(0).firstChild.data;
+      var carisma = atributos.getElementsByTagName('carisma').item(0).firstChild.data;
+
+      atributos = new Atributos(fuerza,destreza,constitucion,inteligencia,sabiduria,
+        carisma)
+
+
+      var competencias = personaje.getElementsByTagName('competencias').item(0);
+
+      var bonificador = competencias.getElementsByTagName('bonificador').item(0).firstChild.data;
+      var atris = competencias.getElementsByTagName('salvaciones').item(0).getElementsByTagName('atributo');
+      var salvaciones = [];
+      for (let i = 0; i < atris.length; i++) {
+        salvaciones.push(atris.item(i).firstChild.data);
+      }
+      var habils = competencias.getElementsByTagName('habilidades').item(0).getElementsByTagName('habilidade');
+      var habilidades = [];
+      for (let i = 0; i < habils.length; i++) {
+        habilidades.push(habils.item(i).firstChild.data);
+      }
+      var ids = competencias.getElementsByTagName('idiomas').item(0).getElementsByTagName('idioma');
+      var idiomas = [];
+      for (let i = 0; i < ids.length; i++) {
+        idiomas.push(ids.item(i).firstChild.data);
+      }
+
+      competencias = new Competencias(bonificador,salvaciones,habilidades,idiomas);
+
+      var inventario = personaje.getElementsByTagName('inventario').item(0);
+      var objs = inventario.getElementsByTagName('objeto');
+
+      var objetos = [];
+      for (let i = 0; i < objs.length; i++) {
+        var nom = objs[i].getAttribute('nombre');
+        var des = objs[i].getElementsByTagName('descripcion').item(0).firstChild.data;
+        objetos.push(new Objeto(nom, des, null, null,null));
+      }
+
+      inventario = new Inventario(objetos);
+
+      try {
+        var refs = personaje.getElementsByTagName('referencias').item(0).getElementsByTagName('referencia');
+        var referencias = [];
+        for (let i = 0; i < refs.length; i++) {
+          referencias.push(refs.item(i).firstChild.data);
+        }
+      } catch (error) {
+        var referencias = null;
+      }
+      
+      try {
+        var autor = personaje.getElementsByTagName('autor').item(0).firstChild.data;
+      } catch (error) {
+        var autor = null;
+      }
+      
+      
+      var per = new Personaje(nombre,raza,descripcion,transfondo,
+        alinemiento,imagen,vida,movimiento,nivel,clase,experiencia,atributos,competencias,
+        inventario,null,referencias,autor);
+
+      texto += per.texto();
+    }
+    this.areaVisualizacion = texto
+    
   }
 }
 

@@ -13,7 +13,8 @@
         <base href="index.html" />
         <link rel="stylesheet" type="text/css" href="estilo.css" />
         <link rel="stylesheet" type="text/css" href="grid-main.css" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/Personaje.js"></script>
         <script src="js/LectorXml.js"></script>
     </head>
     
@@ -48,15 +49,11 @@
 
     <main>
         <p>Seleccione un archivo: </p>
-        <input type="file" id="archivo" onchange="lector.leerArchivo(this.files);">
+        <button onclick="lector.cargarDatos()">Cargar datos</button>
 
-        <p id="error">Error(Archivo no válido)</p>
+        <p id="error">Error</p>
 
         <section>
-            <h2 id="nombreArchivo"></h2>
-            <p id="tamañoArchivo"></p>
-            <p id="tipoArchivo"></p>
-            <p id="ultimaModificacion"></p>
             <p>Contenido del archivo de texto:</p>
             <pre id="areaTexto"></pre>
         </section>

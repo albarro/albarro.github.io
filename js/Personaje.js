@@ -1,7 +1,23 @@
 class Personaje {
-  constructor(nombre, raza, descripcion, transfondo, alinemiento, imagen,
-      vida, movimiento, nivel, clase, experiencia, atributos, competencias, 
-      inventario, magias, referencias, autor) {
+  constructor(
+    nombre,
+    raza,
+    descripcion,
+    transfondo,
+    alinemiento,
+    imagen,
+    vida,
+    movimiento,
+    nivel,
+    clase,
+    experiencia,
+    atributos,
+    competencias,
+    inventario,
+    magias,
+    referencias,
+    autor
+  ) {
     this.nombre = nombre;
     this.raza = raza;
     this.descripcion = descripcion;
@@ -24,129 +40,181 @@ class Personaje {
 
     this.referencias = referencias;
     this.autor = autor;
-    }
+  }
 
-    texto(){
-      texto = this.nombre;
-      return texto;
-    }
-  
-    xml(){
-      xml = "<personaje nombre=\"" + this.nombre + "\">"
+  texto() {
+    var texto = this.nombre + "\n";
 
-      xml += "<raza>" + this.raza + "</raza>"
-      xml += "<descripcion>" + this.descripcion + "</descripcion>"
-      xml += "<transfondo>" + this.transfondo + "</transfondo>"
-      xml += "<alinemiento>" + this.alinemiento + "</alinemiento>"
-      xml += "<imagen>" + this.imagen + "</imagen>"
+    texto += "Raza: " + this.raza + "\n";
+    texto += "Descripcion: " + this.descripcion + "\n";
+    texto += "Transfondo: " + this.transfondo + "\n";
+    texto += "Alineamiento: " + this.alinemiento + "\n";
+    //texto += "Imagen: " + this.imagen + "\n";
 
-      xml += "<vida>" + this.vida + "</vida>"
-      xml += "<movimiento>" + this.movimiento + "</movimiento>"
+    texto += "Vida: " + this.vida + "\n";
+    texto += "Movimiento: " + this.movimiento + "\n";
 
-      xml += "<nivel>" + this.nivel + "</nivel>"
-      xml += "<clase>" + this.clase + "</clase>"
-      xml += "<experiencia>" + this.experiencia + "</experiencia>"
+    texto += "Nivel: " + this.nivel + "\n";
+    texto += "Clase: " + this.clase + "\n";
+    texto += "Experiencia: " + this.experiencia + "\n";
 
-      xml += this.atributos.xml();
-      xml += this.competencias.xml();
-      xml += this.inventario.xml();
-      xml += this.magias.xml();
+    texto += this.atributos.texto();
+    texto += this.competencias.texto();
+    texto += this.inventario.texto();
+    //texto += this.magias.texto();
 
-      this.referencias.forEach(referencia => {
-        xml += "<referencia>" + referencia + "</referencia>"
-      });
-
-      if(this.autor){
-        xml += "<autor>" + this.autor + "</autor>"
+    /* No necesarios para el tablero
+    if (this.referencias != null) {
+      for (let i = 0; i < this.referencias.length; i++) {
+        texto += "Referencia: " + this.referencias[i] + "\n";
       }
-
-      xml += "</personaje>"
-      return xml;
     }
+
+    if (this.autor) {
+      texto += "Autor: " + this.autor + "\n";
+    }
+    */
+    return texto;
+  }
+
+  xml() {
+    var xml = '<personaje nombre="' + this.nombre + '">';
+
+    xml += "<raza>" + this.raza + "</raza>";
+    xml += "<descripcion>" + this.descripcion + "</descripcion>";
+    xml += "<transfondo>" + this.transfondo + "</transfondo>";
+    xml += "<alinemiento>" + this.alinemiento + "</alinemiento>";
+    xml += "<imagen>" + this.imagen + "</imagen>";
+
+    xml += "<vida>" + this.vida + "</vida>";
+    xml += "<movimiento>" + this.movimiento + "</movimiento>";
+
+    xml += "<nivel>" + this.nivel + "</nivel>";
+    xml += "<clase>" + this.clase + "</clase>";
+    xml += "<experiencia>" + this.experiencia + "</experiencia>";
+
+    xml += this.atributos.xml();
+    xml += this.competencias.xml();
+    xml += this.inventario.xml();
+    xml += this.magias.xml();
+
+    if (this.referencias) {
+      for (let i = 0; i < referencias.length; i++) {
+        xml += "<referencia>" + referencia[i] + "</referencia>";
+      }
+    }
+
+    if (this.autor) {
+      xml += "<autor>" + this.autor + "</autor>";
+    }
+
+    xml += "</personaje>";
+    return xml;
+  }
 }
 
+class Atributos {
+  constructor(
+    fuerza,
+    destreza,
+    constitucion,
+    inteligencia,
+    sabiduria,
+    carisma
+  ) {
+    this.fuerza = fuerza;
+    this.destreza = destreza;
+    this.constitucion = constitucion;
+    this.inteligencia = inteligencia;
+    this.sabiduria = sabiduria;
+    this.carisma = carisma;
+  }
 
-class Atributos{
-  constructor(fuerza, destreza, constitucion,
-    inteligencia, sabiduria, carisma){
-      this.fuerza = fuerza;
-      this.destreza = destreza;
-      this.constitucion = constitucion;
-      this.inteligencia = inteligencia;
-      this.sabiduria = sabiduria;
-      this.carisma = carisma;
-    }
+  texto() {
+    var texto = "Atributos: \n";
+    texto += "Fuerza: " + this.fuerza + "\n";
+    texto += "Destreza: " + this.destreza + "\n";
+    texto += "Constitucion: " + this.constitucion + "\n";
+    texto += "Inteligencia: " + this.inteligencia + "\n";
+    texto += "Sabiduria: " + this.sabiduria + "\n";
+    texto += "Carisma: " + this.carisma + "\n";
+    return texto;
+  }
 
-    texto(){
-      texto = "Atributos: \n"
-      texto += this.fuerza +"\n"
-      texto += this.destreza +"\n"
-      texto += this.constitucion +"\n"
-      texto += this.inteligencia +"\n"
-      texto += this.sabiduria +"\n"
-      texto += this.carisma +"\n"
-      return texto;
-    }
-  
-    xml(){
-      xml = "<atributos>"
-      xml += "<fuerza>"+ this.fuerza +"</fuerza>"
-      xml += "<destreza>"+ this.destreza +"</destreza>"
-      xml += "<constitucion>"+ this.constitucion +"</constitucion>"
-      xml += "<inteligencia>"+ this.inteligencia +"</inteligencia>"
-      xml += "<sabiduria>"+ this.sabiduria +"</sabiduria>"
-      xml += "<carisma>"+ this.carisma +"</carisma>"
-      xml += "</atributos>"
-      return xml;
-    }
-
+  xml() {
+    var xml = "<atributos>";
+    xml += "<fuerza>" + this.fuerza + "</fuerza>";
+    xml += "<destreza>" + this.destreza + "</destreza>";
+    xml += "<constitucion>" + this.constitucion + "</constitucion>";
+    xml += "<inteligencia>" + this.inteligencia + "</inteligencia>";
+    xml += "<sabiduria>" + this.sabiduria + "</sabiduria>";
+    xml += "<carisma>" + this.carisma + "</carisma>";
+    xml += "</atributos>";
+    return xml;
+  }
 }
 
-class Competencias{
-  constructor(bonificador, salvaciones, habilidades,
-    idiomas){
-      this.bonificador = bonificador;
-      this.salvaciones = salvaciones;
-      this.habilidades = habilidades;
-      this.idiomas = idiomas;
+class Competencias {
+  constructor(bonificador, salvaciones, habilidades, idiomas) {
+    this.bonificador = bonificador;
+    this.salvaciones = salvaciones;
+    this.habilidades = habilidades;
+    this.idiomas = idiomas;
+  }
+
+  texto() {
+    var texto = "Competencias: \n";
+    texto += "Bonificador: +" + this.bonificador + "\n";
+
+    texto += "Salvaciones: ";
+    for (let i = 0; i < this.salvaciones.length; i++) {
+      texto += this.salvaciones[i] + ",";
     }
+    texto += "\n";
 
-    texto(){
-      texto = "Competencias: \n"
-      return texto;
+    texto += "Habilidades: ";
+    for (let i = 0; i < this.habilidades.length; i++) {
+      texto += this.habilidades[i] + ",";
     }
-  
-    xml(){
-      xml = "<competencias>"
-      xml += "<bonificador>"+ this.bonificador +"</bonificador>"
+    texto += "\n";
 
-      xml += "<salvaciones>"
-      this.salvaciones.forEach(atributo => {
-        xml += "<atributo>" + atributo + "</atributo>"
-      });
-      xml += "</salvaciones>"
-
-      xml += "<habilidades>"
-      this.habilidades.forEach(habilidad => {
-        xml += "<habilidad>" + habilidad + "</habilidad>"
-      });
-      xml += "</habilidades>"
-
-      xml += "<idiomas>"
-      this.idiomas.forEach(idioma => {
-        xml += "<idioma>" + idioma + "</idioma>"
-      });
-      xml += "</idiomas>"
-
-      xml += "</competencias>"
-      return xml;
+    texto += "Idiomas: ";
+    for (let i = 0; i < this.idiomas.length; i++) {
+      texto += this.idiomas[i] + ",";
     }
+    texto += "\n";
+    return texto;
+  }
 
+  xml() {
+    var xml = "<competencias>";
+    xml += "<bonificador>" + this.bonificador + "</bonificador>";
+
+    xml += "<salvaciones>";
+    for (let i = 0; i < this.salvaciones.length; i++) {
+      xml += "<atributo>" + this.salvaciones[i] + "</atributo>";
+    }
+    xml += "</salvaciones>";
+
+    xml += "<habilidades>";
+    for (let i = 0; i < this.habilidades.length; i++) {
+      xml += "<atributo>" + this.habilidades[i] + "</atributo>";
+    }
+    xml += "</habilidades>";
+
+    xml += "<idiomas>";
+    for (let i = 0; i < this.idiomas.length; i++) {
+      xml += "<idioma>" + this.idiomas[i] + "</idioma>";
+    }
+    xml += "</idiomas>";
+
+    xml += "</competencias>";
+    return xml;
+  }
 }
 
-
-class Objeto{
-  constructor(nombre, descripcion, referencia, imagenes, video){
+class Objeto {
+  constructor(nombre, descripcion, referencia, imagenes, video) {
     this.nombre = nombre;
     this.descripcion = descripcion;
 
@@ -155,120 +223,144 @@ class Objeto{
     this.video = video;
   }
 
-  texto(){
-    texto = this.nombre
+  texto() {
+    var texto = "Objeto: " + this.nombre + "\n";
+    texto += "\t Descripcion: " + this.descripcion + "\n";
     return texto;
   }
 
-  xml(){
-    xml = "<objeto nombre=\"" + this.nombre + "\">"
-    xml += "<descripcion>" + this.descripcion + "</descripcion>"
-    if(this.referencia != null){
-      xml += "<referencia>" + this.referencia + "</referencia>"
+  xml() {
+    var xml = '<objeto nombre="' + this.nombre + '">';
+    xml += "<descripcion>" + this.descripcion + "</descripcion>";
+    if (this.referencia != null) {
+      xml += "<referencia>" + this.referencia + "</referencia>";
     }
-    if(this.imagen != null){
-      xml += "<imagenes>"
-      this.nivelesMagia.forEach(nivel => {
-        xml += nivel.xml()
-      });
-      xml += "</imagenes>"
+    if (this.imagenes != null) {
+      xml += "<imagenes>";
+      for (let i = 0; i < this.imagenes.length; i++) {
+        xml += "<imagen>" + this.imagenes[i] + "</imagen>";
+      }
+      xml += "</imagenes>";
     }
-    if(this.video){
-      xml += "<video>" + this.video + "</video>"
+    if (this.video) {
+      xml += "<video>" + this.video + "</video>";
     }
-    xml += "</objeto>"
+    xml += "</objeto>";
     return xml;
   }
 }
 
-class Magias{
-  constructor(atributo, salvacion, bonificador, nivelesMagia){
-  this.atributo = atributo;
-  this.salvacion = salvacion;
-  this.bonificador = bonificador;
-
-  this.nivelesMagia = nivelesMagia;
+class Inventario {
+  constructor(objetos) {
+    this.objetos = objetos;
   }
 
-  texto(){
-    texto = "magia"
+  texto() {
+    var texto = "-------------------------- \n";
+    for (let i = 0; i < this.objetos.length; i++) {
+      texto += this.objetos[i].texto();
+    }
+    texto += "-------------------------- \n";
     return texto;
   }
 
-  xml(){
-    xml = "<magias>"
-    xml += "<atributo>" + this.atributo + "</atributo>"
-    xml += "<salvacion>" + this.salvacion + "</salvacion>"
-    xml += "<bonificador>" + this.salvacion + "</bonificador>"
-    this.nivelesMagia.forEach(nivel => {
-      xml += nivel.xml()
+  xml() {
+    var xml = "<inventario>";
+    for (let i = 0; i < this.objetos.length; i++) {
+      xml += this.objetos[i];
+    }
+    xml += "</inventario>";
+    return xml;
+  }
+}
+
+class Magias {
+  constructor(atributo, salvacion, bonificador, nivelesMagia) {
+    this.atributo = atributo;
+    this.salvacion = salvacion;
+    this.bonificador = bonificador;
+
+    this.nivelesMagia = nivelesMagia;
+  }
+
+  texto() {
+    var texto = "magia";
+    return texto;
+  }
+
+  xml() {
+    var xml = "<magias>";
+    xml += "<atributo>" + this.atributo + "</atributo>";
+    xml += "<salvacion>" + this.salvacion + "</salvacion>";
+    xml += "<bonificador>" + this.salvacion + "</bonificador>";
+    this.nivelesMagia.forEach((nivel) => {
+      xml += nivel.xml();
     });
-    xml += "</magias>"
+    xml += "</magias>";
 
     return xml;
   }
 }
 
-class NivelMagia{
-  constructor(nivel, usos, magias){
+class NivelMagia {
+  constructor(nivel, usos, magias) {
     this.nivel = nivel;
     this.usos = usos;
     this.magias = magias;
   }
 
-  texto(){
-    texto = this.nivel
+  texto() {
+    var texto = this.nivel;
     return texto;
   }
 
-  xml(){
-    xml = "<nivelMagia n=\"" + this.nivel + "\">"
-    xml += "<usos>" + this.usos + "</usos>"
-    this.magias.forEach(magia => {
-      xml += magia.xml()
+  xml() {
+    var xml = '<nivelMagia n="' + this.nivel + '">';
+    xml += "<usos>" + this.usos + "</usos>";
+    this.magias.forEach((magia) => {
+      xml += magia.xml();
     });
-    xml += "</nivelMagia>"
+    xml += "</nivelMagia>";
 
     return xml;
   }
-
 }
 
-class Magia{
-  constructor(nombre, descripcion, componentes, referencia, imagenes, video){
+class Magia {
+  constructor(nombre, descripcion, componentes, referencia, imagenes, video) {
     this.nombre = nombre;
     this.descripcion = descripcion;
 
-    this.componentes = componentes;  
+    this.componentes = componentes;
 
     this.referencia = referencia;
     this.imagenes = imagenes;
     this.video = video;
   }
 
-  texto(){
-    texto = this.nombre
+  texto() {
+    var texto = this.nombre;
     return texto;
   }
 
-  xml(){
-    xml = "<magia nombre=\"" + this.nombre + "\">"
-    xml += "<descripcion>" + this.descripcion + "</descripcion>"
-    xml += "<componentes>" + this.componentes + "</componentes>"
-    if(this.referencia != null){
-      xml += "<referencia>" + this.referencia + "</referencia>"
+  xml() {
+    var xml = '<magia nombre="' + this.nombre + '">';
+    xml += "<descripcion>" + this.descripcion + "</descripcion>";
+    xml += "<componentes>" + this.componentes + "</componentes>";
+    if (this.referencia != null) {
+      xml += "<referencia>" + this.referencia + "</referencia>";
     }
-    if(this.imagen != null){
-      xml += "<imagenes>"
-      this.nivelesMagia.forEach(nivel => {
-        xml += nivel.xml()
+    if (this.imagen != null) {
+      xml += "<imagenes>";
+      this.nivelesMagia.forEach((nivel) => {
+        xml += nivel.xml();
       });
-      xml += "</imagenes>"
+      xml += "</imagenes>";
     }
-    if(this.video){
-      xml += "<video>" + this.video + "</video>"
+    if (this.video) {
+      xml += "<video>" + this.video + "</video>";
     }
-    xml += "</magia>"
+    xml += "</magia>";
 
     return xml;
   }

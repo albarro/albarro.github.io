@@ -218,10 +218,13 @@
                         </p>
                     </xsl:for-each>
 
-                    <p>
-                        autor:
-                        <xsl:value-of select="x:autor" />
-                    </p>
+                    <xsl:for-each select="x:autor">
+                        <p>
+                            autor:
+                            <xsl:value-of select="." />
+                        </p>
+                    </xsl:for-each>
+
                 </footer>
             </article>
         </section>
