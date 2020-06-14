@@ -224,4 +224,50 @@
             </nivelMagia>
         </magias>
     </personaje>
+
+    <personaje nombre="Kursk">
+        <raza>Semiorco</raza>
+        <descripcion>El vijo y veterano kursk lucho en las guerras de peñasa y ha vuelto para patear a todabia mas gente</descripcion>
+        <transfondo>Héroe del pueblo</transfondo>
+        <alinemiento>Caotico Neutral</alinemiento>
+        <imagen>Kursk.jpg</imagen>
+        <vida>120</vida>
+        <movimiento>40</movimiento>
+        <nivel>20</nivel>
+        <clase>Barbaro</clase>
+        <experiencia>680</experiencia>
+        <atributos>
+            <fuerza>20</fuerza>
+            <destreza>15</destreza>
+            <constitucion>19</constitucion>
+            <inteligencia>15</inteligencia>
+            <sabiduria>12</sabiduria>
+            <carisma>16</carisma>
+        </atributos>
+        <competencias>
+            <bonificador>4</bonificador>
+            <salvaciones>
+                <atributo>Fuerza</atributo>
+                <atributo>Constitucion</atributo>
+            </salvaciones>
+            <idiomas>
+                <idioma>Semiorco</idioma>
+                <idioma>Comun</idioma>
+            </idiomas>
+        </competencias>
+        <inventario>
+            <objeto nombre="La puerta">
+                <descripcion>La legendaria puerta de las antiguas leyendas. Daño: 2d12 Contundente</descripcion>
+                <video>https://www.youtube.com/watch?v=wZTUXoL5byo</video>
+            </objeto>
+            <objeto nombre="Armadura Cuero tachonado">
+                <descripcion>CA 12 + Des</descripcion>
+            </objeto>
+        </inventario>
+        <magias>
+            <atributo>Inteligencia</atributo>
+            <salvacion>2</salvacion>
+            <bonificador>2</bonificador>
+        </magias>
+    </personaje>
 </personajes>

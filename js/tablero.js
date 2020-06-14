@@ -179,18 +179,17 @@ class Dado {
     this.url = "http://roll.diceapi.com/json/";
     this.error =
       "<h2>Error(No puedo obtener información de <a href='http://roll.diceapi.com/'>diceApi</a>)</h2>";
-    this.correcto = "Valor de tirada ";
   }
   tirarDado(dado) {
     var elem = this;
     $.ajax({
-      async: true,
-      crossDomain: true,
       dataType: "json",
       url: this.url + dado,
+      async: true,
+      crossDomain: true,
       method: "GET",
       headers: {
-        "cache-control": "no-cache",
+        "cache-control": "no-cache"
       },
       success: function (datos) {
         elem.cargarDatos(datos.datos);
@@ -210,7 +209,7 @@ class Dado {
         elem.json = JSON.stringify(datos, null, 2);
 
         var resultado =
-          "<p>Valor: " + datos[0].nombre + " Dado: " + datos + "</p>";
+          "<p>Valor: " + datos.dice.value + " Dado: " + datos.dice.type + "</p>";
 
         elem.string = resultado;
         elem.verJSON();
