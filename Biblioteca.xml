@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<?xml-stylesheet type="text/xsl" href="personajes.xsl"?>
-<personajes xsi:schemaLocation="http://tempuri.org/personajes personajes.xsd"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns="http://tempuri.org/personajes">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="personajes.xsl" ?>
+<personajes xsi:schemaLocation="http://tempuri.org/personajes personajes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://tempuri.org/personajes">
 
     <personaje nombre="Prueba">
 
@@ -34,12 +32,6 @@ xmlns="http://tempuri.org/personajes">
                 <atributo>Inteligencia</atributo>
                 <atributo>Constitucion</atributo>
             </salvaciones>
-            <habilidades>
-                <habilidad>Historia</habilidad>
-                <habilidad>Juego de Manos</habilidad>
-                <habilidad>Naturaleza</habilidad>
-                <habilidad>Perspicacia</habilidad>
-            </habilidades>
             <idiomas>
                 <idioma>Comun</idioma>
                 <idioma>Binario</idioma>
@@ -121,12 +113,6 @@ xmlns="http://tempuri.org/personajes">
                 <atributo>Constitucion</atributo>
                 <atributo>Inteligencia</atributo>
             </salvaciones>
-            <habilidades>
-                <habilidad>Historia</habilidad>
-                <habilidad>Juego de Manos</habilidad>
-                <habilidad>Naturaleza</habilidad>
-                <habilidad>Persuasión</habilidad>
-            </habilidades>
             <idiomas>
                 <idioma>Comun</idioma>
                 <idioma>Enano</idioma>
@@ -188,7 +174,54 @@ xmlns="http://tempuri.org/personajes">
                 </magia>
             </nivelMagia>
         </magias>
-
     </personaje>
 
+    <personaje nombre="Prueba">
+        <raza>Probadores</raza>
+        <descripcion>Personaje de prueba para el tutorial</descripcion>
+        <transfondo>Prueba</transfondo>
+        <alinemiento>Neutral Neutral</alinemiento>
+        <imagen>https://economipedia.com/wp-content/uploads/test-de-estr%C3%A9s.png</imagen>
+        <vida>10</vida>
+        <movimiento>10</movimiento>
+        <nivel>1</nivel>
+        <clase>Probador</clase>
+        <experiencia>1</experiencia>
+        <atributos>
+            <fuerza>1</fuerza>
+            <destreza>20</destreza>
+            <constitucion>20</constitucion>
+            <inteligencia>1</inteligencia>
+            <sabiduria>20</sabiduria>
+            <carisma>15</carisma>
+        </atributos>
+        <competencias>
+            <bonificador>4</bonificador>
+            <salvaciones>
+                <atributo>Fuerza</atributo>
+                <atributo>Inteligencia</atributo>
+            </salvaciones>
+            <idiomas>
+                <idioma>Binario</idioma>
+            </idiomas>
+        </competencias>
+        <inventario>
+            <objeto nombre="Tester">
+                <descripcion>Objeto de prueba</descripcion>
+            </objeto>
+        </inventario>
+        <magias>
+            <atributo>Inteligencia</atributo>
+            <salvacion>4</salvacion>
+            <bonificador>4</bonificador>
+            <nivelMagia n="1">
+                <usos>1</usos>
+                <magia nombre="Prueba">
+                    <descripcion>Magia probatoria</descripcion>
+                    <componentes>Debuger</componentes>
+                    <referencia>www.test.test</referencia>
+                </magia>
+            </nivelMagia>
+        </magias>
+    </personaje>
 </personajes>

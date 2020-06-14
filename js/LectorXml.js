@@ -107,6 +107,36 @@ class Lector {
 
       inventario = new Inventario(objetos);
 
+      var magias = personaje.getElementsByTagName('magias').item(0);
+
+      var atri = magias.getElementsByTagName('atributo').item(0).firstChild.data;
+      var sal = magias.getElementsByTagName('salvacion').item(0).firstChild.data;
+      var bon = magias.getElementsByTagName('bonificador').item(0).firstChild.data;
+
+      var nivs = magias.getElementsByTagName('nivelMagia');
+      var niveles =[];
+      for (let i = 0; i < nivs.length; i++) {
+        var niv = nivs.item(i).getAttribute('n')
+        var usos = nivs.item(i).getElementsByTagName('usos').item(0).firstChild.data;
+
+        var ms = nivs.item(i).getElementsByTagName('magia');
+        var mags =[];
+        for (let i = 0; i < ms.length; i++) {
+          var nom = ms.item(i).getAttribute('nombre');
+          var des = ms.item(i).getElementsByTagName('descripcion').item(0).firstChild.data;
+          var comp = ms.item(i).getElementsByTagName('componentes').item(0).firstChild.data;
+
+          mags.push(new Magia(nom,des,comp,null,null,null))
+        }
+        
+
+        niveles.push(new NivelMagia(niv,usos,mags));
+      }
+    
+
+      magias = new Magias(atri,sal,bon,niveles)
+
+
       try {
         var refs = personaje.getElementsByTagName('referencias').item(0).getElementsByTagName('referencia');
         var referencias = [];
@@ -126,7 +156,7 @@ class Lector {
       
       var per = new Personaje(nombre,raza,descripcion,transfondo,
         alinemiento,imagen,vida,movimiento,nivel,clase,experiencia,atributos,competencias,
-        inventario,null,referencias,autor);
+        inventario,magias,referencias,autor);
 
       texto += per.texto();
     }

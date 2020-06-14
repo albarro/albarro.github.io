@@ -1,0 +1,9 @@
+form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: stretch;
+    align-content: stretch;
+    
+}
+

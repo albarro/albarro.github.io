@@ -9,20 +9,21 @@
         <meta name="keywords" content="D&D, dungeons, dragons, juego, tablero" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
     
-        <title>Bienvenido</title>
+        <title>Tablero</title>
         <base href="index.html" />
-        <link rel="stylesheet" type="text/css" href="estilo.css" />
-        <link rel="stylesheet" type="text/css" href="grid-main.css" />
+        <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+        <link rel="stylesheet" type="text/css" href="css/grid-main.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="js/Personaje.js"></script>
         <script src="js/LectorXml.js"></script>
+        <script src="js/tablero.js"></script>
     </head>
     
     <body>
         <!-- Datos con el contenidos que aparece en el navegador -->
     
         <header>
-            <h1>....</h1>
+            <h1>D &#38; D</h1>
     
     
             <nav>
@@ -58,9 +59,16 @@
             <pre id="areaTexto"></pre>
         </section>
 
-        <canvas>
-            
-        </canvas>
+        <section>
+            <p>Selecionar dado:</p>
+            <button onclick="dado.tirarDado('d4')">Tirar dado d4</button>
+            <button onclick="dado.tirarDado('d6')">Tirar dado d6</button>
+            <button onclick="dado.tirarDado('d10')">Tirar dado d10</button>
+            <button onclick="dado.tirarDado('d20')">Tirar dado d20</button>
+            <p id="resultado"></p>
+        </section>
+
+        <canvas id="canvas"></canvas>
     </main>
 
     <footer>

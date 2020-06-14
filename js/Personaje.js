@@ -49,7 +49,6 @@ class Personaje {
     texto += "Descripcion: " + this.descripcion + "\n";
     texto += "Transfondo: " + this.transfondo + "\n";
     texto += "Alineamiento: " + this.alinemiento + "\n";
-    //texto += "Imagen: " + this.imagen + "\n";
 
     texto += "Vida: " + this.vida + "\n";
     texto += "Movimiento: " + this.movimiento + "\n";
@@ -61,7 +60,7 @@ class Personaje {
     texto += this.atributos.texto();
     texto += this.competencias.texto();
     texto += this.inventario.texto();
-    //texto += this.magias.texto();
+    texto += this.magias.texto();
 
     /* No necesarios para el tablero
     if (this.referencias != null) {
@@ -155,10 +154,9 @@ class Atributos {
 }
 
 class Competencias {
-  constructor(bonificador, salvaciones, habilidades, idiomas) {
+  constructor(bonificador, salvaciones, idiomas) {
     this.bonificador = bonificador;
     this.salvaciones = salvaciones;
-    this.habilidades = habilidades;
     this.idiomas = idiomas;
   }
 
@@ -169,12 +167,6 @@ class Competencias {
     texto += "Salvaciones: ";
     for (let i = 0; i < this.salvaciones.length; i++) {
       texto += this.salvaciones[i] + ",";
-    }
-    texto += "\n";
-
-    texto += "Habilidades: ";
-    for (let i = 0; i < this.habilidades.length; i++) {
-      texto += this.habilidades[i] + ",";
     }
     texto += "\n";
 
@@ -195,12 +187,6 @@ class Competencias {
       xml += "<atributo>" + this.salvaciones[i] + "</atributo>";
     }
     xml += "</salvaciones>";
-
-    xml += "<habilidades>";
-    for (let i = 0; i < this.habilidades.length; i++) {
-      xml += "<atributo>" + this.habilidades[i] + "</atributo>";
-    }
-    xml += "</habilidades>";
 
     xml += "<idiomas>";
     for (let i = 0; i < this.idiomas.length; i++) {
@@ -226,6 +212,17 @@ class Objeto {
   texto() {
     var texto = "Objeto: " + this.nombre + "\n";
     texto += "\t Descripcion: " + this.descripcion + "\n";
+    if (this.referencia != null) {
+      texto += "\t Referencia: " + this.referencia + "\n";
+    }
+    if (this.imagenes != null) {
+      for (let i = 0; i < this.imagenes.length; i++) {
+        texto += "\t Imagen: " + this.imagenes[i] + "\n";
+      }
+    }
+    if (this.video) {
+      texto += "\t Video: " + this.video + "\n";
+    }
     return texto;
   }
 
@@ -267,7 +264,7 @@ class Inventario {
   xml() {
     var xml = "<inventario>";
     for (let i = 0; i < this.objetos.length; i++) {
-      xml += this.objetos[i];
+      xml += this.objetos[i].xml();
     }
     xml += "</inventario>";
     return xml;
@@ -284,7 +281,12 @@ class Magias {
   }
 
   texto() {
-    var texto = "magia";
+    var texto = "Magia: \n";
+    texto += "Atributo magico: " + this.atributo + " Salvacion magica: " + this.salvacion;
+    texto += " Bonificador magico: " + this.bonificador + "\n";
+    for (let i = 0; i < this.nivelesMagia.length; i++) {
+      texto += this.nivelesMagia[i].texto();
+    }
     return texto;
   }
 
@@ -310,7 +312,11 @@ class NivelMagia {
   }
 
   texto() {
-    var texto = this.nivel;
+    var texto = "Nivel: " + this.nivel + " Usos: "+ this.usos + "\n";
+    texto += "Magias: \n";
+    for (let i = 0; i < this.magias.length; i++) {
+      texto += this.magias[i].texto();
+    }
     return texto;
   }
 
@@ -339,7 +345,9 @@ class Magia {
   }
 
   texto() {
-    var texto = this.nombre;
+    var texto = "Magia: " + this.nombre + "\n";
+    texto += "\t Descripcion: " + this.descripcion + "\n";
+    texto += "\t Componentes: " + this.componentes + "\n";
     return texto;
   }
 

@@ -9,10 +9,14 @@
     <meta name="keywords" content="Los Soprano, los, soprano, serie, television, HBO" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Practica 1 - Concepcion</title>
+    <title>Editor</title>
     <base href="index.html" />
-    <link rel="stylesheet" type="text/css" href="estilo.css" />
-    <link rel="stylesheet" type="text/css" href="grid-2nav.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="css/grid-2nav.css" />
+    <link rel="stylesheet" type="text/css" href="css/editor.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/Personaje.js"></script>
+    <script src="js/CreadorXml.js"></script>
 </head>
 
 
@@ -20,25 +24,22 @@
 <body>
     <!-- Datos con el contenidos que aparece en el navegador -->
     <header>
-        <h1>Los Soprano</h1>
+        <h1>D &#38; D</h1>
 
         <nav>
             <ul>
                 <li>
-                    <a title="Enlace a la pagina inicial" tabindex="1" accesskey="I" 
-                    href="index.html">Inicio</a>
+                    <a title="Enlace a la pagina inicial" tabindex="1" accesskey="I" href="index.html">Inicio</a>
                 </li>
                 <li>
-                    <a title="Enlace al tutorial" tabindex="2" accesskey="T" 
-                    href="Tutorial.html">Tutorial</a>
+                    <a title="Enlace al tutorial" tabindex="2" accesskey="T" href="Tutorial.html">Tutorial</a>
                 </li>
                 <li>
                     <a title="Enlace a la biblioteca de personajes" tabindex="3" accesskey="B"
                         href="Biblioteca.xml">Biblioteca</a>
                 </li>
                 <li>
-                    <a title="Enlace al tablero" tabindex="4" accesskey="E" 
-                    href="Tablero.html">Tablero</a>
+                    <a title="Enlace al tablero" tabindex="4" accesskey="E" href="Tablero.html">Tablero</a>
                 </li>
             </ul>
         </nav>
@@ -52,79 +53,103 @@
     </header>
 
     <main>
-    <section>
-        <h2>Concepcion</h2>
-            <p>
-                Antes de crear Los Soprano, David Chase había trabajado como guionista durante veinte años. Trabajó como guionista y
-                productor en varias series de televisión (incluidas Kolchak: The Night Stalker, The Rockford Files, I'll Fly Away y
-                Doctor en Alaska) y fue uno de los creadores de la efímera serie Almost Grown, en 1988. Antes de su éxito con Los
-                Soprano, Chase ganó dos Premios Emmy: uno en 1980 por el guion del telefilme Off the Minnesota Strip, y otro en 1978
-                por su trabajo en The Rockford Files (compartido con otros productores).
-            </p>
+        <section>
+            <h2>Creador de personajes</h2>
+            <form name="formulario" action="" method="post" onSubmit="generador.validar();">
+                <section>
+                    <p>Nombre</p>
+                    <input type="text" name="nombre" required="true">
+                    <p>Raza</p>
+                    <input type="text" name="raza" required="true">
+                    <p>Descripcion</p>
+                    <input type="text" name="descripcion" required="true">
+                    <p>Transfondo</p>
+                    <input type="text" name="transfondo" required="true">
+                    <p>Alinemiento</p>
+                    <input type="text" name="alinemiento" required="true">
+                    <p>Imagen</p>
+                    <input type="text" name="imagen" required="true">
 
-            <p>
-                La historia de Los Soprano fue inicialmente concebida como un largometraje sobre "un mafioso en terapia que tiene
-                problemas con su madre". Tras algunas aportaciones de su mánager, Lloyd Braun, Chase decidió adaptarlo a una serie
-                de televisión. En 1995, Chase firmó un contrato con la compañía de producción Brillstein-Grey y escribió el guion
-                original del episodio piloto. Basándose en gran medida en su vida personal y en sus experiencias creciendo en Nueva
-                Jersey, Chase aseguró que trató de "aplicar [su propia] dinámica familiar a los mafiosos". Por ejemplo, la
-                tormentosa relación entre el protagonista Tony Soprano y su madre, Livia, se basa, en gran parte, en la relación de
-                Chase con su propia madre. Durante esa época, Chase también fue a terapia y modeló el personaje de la Dra. Jennifer
-                Melfi a partir de su propio psiquiatra. Desde temprana edad, Chase ya había mostrado interés en la mafia tras crecer
-                con clásicas películas de gánsteres como El enemigo público y la serie Los Intocables. En gran medida, la historia
-                de la serie está inspirada en la auténtica Familia criminal DeCavalcante, que se convirtió en la principal familia
-                del crimen organizado de Nueva Jersey durante la juventud de Chase. El nombre de la serie, por otra parte, proviene
-                de unos amigos suyos del instituto. Chase pensaba que el escenario de la mafia le permitiría explorar temas como la
-                identidad italoestadounidense y la naturaleza de la violencia, entre otros. El propio Chase es de ascendencia
-                italiana y su apellido real es DeCesare.
-            </p>
+                    <p>Vida</p>
+                    <input type="number" name="vida" required="true">
+                    <p>Movimiento</p>
+                    <input type="number" name="movimiento" required="true">
 
-            <p>
-                Chase y el productor Brad Grey, de Brillstein-Grey, ofrecieron Los Soprano a varias cadenas. FOX mostró interés,
-                pero decidieron rechazar la propuesta después de que Chase les presentara el episodio piloto. Chase y Grey
-                finalmente ofrecieron la serie al entonces director de contenidos de HBO, Chris Albrecht, que reconoció la
-                originalidad y el potencial de Los Soprano, y decidió financiar el rodaje de un episodio piloto. Albrecht dijo: “Me
-                dije, esta serie trata sobre un tipo en torno a los cuarenta años. Ha heredado el negocio de su padre y está
-                tratando de modernizarlo a nuestros días, con todas las responsabilidades que ello implica. Tiene una madre
-                autoritaria de la cual aún trata de escaparse. A pesar de que ama a su esposa, ha tenido una aventura. Tiene dos
-                hijos adolescentes y está haciendo frente a la realidad que ello conlleva. Está preocupado y deprimido, y comienza a
-                ver a una terapeuta porque está buscando el significado de su propia vida. Pensé: la única diferencia entre él y
-                toda la gente que conozco es que él es el Don de Nueva Jersey.”
-            </p>
+                    <p>Nivel</p>
+                    <input type="number" name="nivel" required="true">
+                    <p>Clase</p>
+                    <input type="text" name="clase" required="true">
+                    <p>Experiencia</p>
+                    <input type="number" name="experiencia" required="true">
+                </section>
+                <section>
+                    <h2>Atributos</h2>
+                    <p>Fuerza</p>
+                    <input type="number" name="fuerza" min="1" max="20" required="true">
+                    <p>Destreza</p>
+                    <input type="number" name="destreza" min="1" max="20" required="true">
+                    <p>Constitucion</p>
+                    <input type="number" name="constitucion" min="1" max="20" required="true">
+                    <p>Inteligencia</p>
+                    <input type="number" name="inteligencia" min="1" max="20" required="true">
+                    <p>Sabiduria</p>
+                    <input type="number" name="sabiduria" min="1" max="20" required="true">
+                    <p>Carisma</p>
+                    <input type="number" name="carisma" min="1" max="20" required="true">
+                </section>
 
-            <p>
-                El episodio piloto —llamado "The Sopranos" en el DVD pero referido comúnmente como "Piloto"— fue filmado en 1997.
-                Chase, tras haber dirigido anteriormente episodios de The Rockford Files y Almost Grown, lo dirigió él mismo. Una
-                vez finalizado el episodio piloto y tras mostrarlo a los directivos de HBO, la serie quedó a expensas, durante un
-                año, de que HBO finalmente decidiera producirla y ordenara una temporada completa de trece episodios. La serie se
-                estrenó en HBO el 10 de enero de 1999, con el episodio piloto. Los Soprano fue la segunda serie de drama de una hora
-                de duración producida por HBO, que tomó el relevo de Oz.
-            </p>
-    </section>
+                <section>
+                    <h2>Competencias</h2>
+                    <p>Bonificador</p>
+                    <input type="number" name="bonificador" required="true">
+                    <p>Salvaciones</p>
+                    <input type="checkbox" name="atributofuerza" value="fuerza">
+                    <label for="atributofuerza"> Fuerza</label>
+                    <p></p>
+                    <input type="checkbox" name="atributodestreza" value="destreza">
+                    <label for="atributodestreza"> Destreza</label>
+                    <p></p>
+                    <input type="checkbox" name="atributoconstitucion" value="constitucion">
+                    <label for="atributoconstitucion"> Constitucion</label>
+                    <p></p>
+                    <input type="checkbox" name="atributointeligencia" value="inteligencia">
+                    <label for="atributointeligencia"> Inteligencia</label>
+                    <p></p>
+                    <input type="checkbox" name="atributosabiduria" value="sabiduria">
+                    <label for="atributosabiduria"> Sabiduria</label>
+                    <p></p>
+                    <input type="checkbox" name="atributocarisma" value="carisma">
+                    <label for="atributocarisma"> Carisma</label>
+                    <p></p>
+                    <h3>Idiomas</h3>
+                    <input type="button" onclick="generador.añadirIdioma()" value="Añadir idioma" id="idiomas">
+                    <p><input type="text" name="idioma" required></p>
+                </section>
+                <section>
+                    <h2>Iventario</h2>
+                    <input type="button" onclick="generador.añadirObjeto()" value="Añadir objeto" id="inventario"> 
+                </section>
+                <section>
+                    <h2>Magias</h2>
+                    <p>Atributo magico</p>
+                    <input type="text" name="atrMag" required="true">
+                    <p>Salvacion magica</p>
+                    <input type="number" name="salMag" required="true">
+                    <p>Bonificador</p>
+                    <input type="number" name="bofMag" required="true">
+                    <input type="button" onclick="generador.añadirNivel()" value="Añadir Nivel" id="nivel"> 
+                </section>
+                <p><input type="submit"></p>
     </main>
 
     <footer>
-        <h2>Más información</h2>
-    
-        <ul>
-            <li>
-                <a
-                    href="https://es.hboespana.com/series/the-sopranos/103aae84-b40c-4d86-bf79-b9521c06b640">https://es.hboespana.com/series/the-sopranos</a>
-            </li>
-            <li>
-                <a
-                    href="https://www.filmaffinity.com/es/film402150.html">https://www.filmaffinity.com/es/film402150.html</a>
-            </li>
-        </ul>
-    
         <a href="https://validator.w3.org/check?uri=referer">
             <img src="https://www.w3.org/html/logo/badge/html5-badge-h-solo.png" alt="HTML5 Válido" title="HTML5 Válido"
                 height="64" width="63" />
         </a>
-    
+
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
-            <img style="border:0;width:88px;height:31px"
-                src="http://jigsaw.w3.org/css-validator/images/vcss"
+            <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss"
                 alt="¡CSS Válido!" />
         </a>
     </footer>
