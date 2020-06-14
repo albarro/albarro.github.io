@@ -176,7 +176,7 @@ canvas.onresize = function (e) {
 
 class Dado {
   constructor() {
-    this.url = "//roll.diceapi.com/json/";
+    this.url = "http://roll.diceapi.com/json/";
     this.error =
       "<h2>Error(No puedo obtener información de <a href='http://roll.diceapi.com/'>diceApi</a>)</h2>";
     this.correcto = "Valor de tirada ";
@@ -229,7 +229,3 @@ var dado = new Dado();
 var dibujo = new Dibujo();
 var cargador = new Cargador();
 var gestor = new GestorEventos(dibujo, cargador);
-
-cargador.leerArchivo(
-  new File(["ficha negra"], "multimedia/Ficha negra.png", { type: "image/png" })
-);
