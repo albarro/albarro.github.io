@@ -55,71 +55,72 @@
     <main>
         <section>
             <h2>Creador de personajes</h2>
-            <form name="formulario" action="" method="post" onSubmit="generador.validar();">
+            <form name="formulario" method="post" onSubmit="generador.validar();">
                 <section>
+                    <h2>Informacion general</h2>
                     <p>Nombre</p>
-                    <input type="text" name="nombre" required="true">
+                    <input type="text" name="nombre" required>
                     <p>Raza</p>
-                    <input type="text" name="raza" required="true">
+                    <input type="text" name="raza" required>
                     <p>Descripcion</p>
-                    <input type="text" name="descripcion" required="true">
+                    <input type="text" name="descripcion" required>
                     <p>Transfondo</p>
-                    <input type="text" name="transfondo" required="true">
+                    <input type="text" name="transfondo" required>
                     <p>Alinemiento</p>
-                    <input type="text" name="alinemiento" required="true">
+                    <input type="text" name="alinemiento" required>
                     <p>Imagen</p>
-                    <input type="text" name="imagen" required="true">
+                    <input type="text" name="imagen" required>
 
                     <p>Vida</p>
-                    <input type="number" name="vida" required="true">
+                    <input type="number" name="vida" required>
                     <p>Movimiento</p>
-                    <input type="number" name="movimiento" required="true">
+                    <input type="number" name="movimiento" required>
 
                     <p>Nivel</p>
-                    <input type="number" name="nivel" required="true">
+                    <input type="number" name="nivel" required>
                     <p>Clase</p>
-                    <input type="text" name="clase" required="true">
+                    <input type="text" name="clase" required>
                     <p>Experiencia</p>
-                    <input type="number" name="experiencia" required="true">
+                    <input type="number" name="experiencia" required>
                 </section>
                 <section>
                     <h2>Atributos</h2>
                     <p>Fuerza</p>
-                    <input type="number" name="fuerza" min="1" max="20" required="true">
+                    <input type="number" name="fuerza" min="1" max="20" required>
                     <p>Destreza</p>
-                    <input type="number" name="destreza" min="1" max="20" required="true">
+                    <input type="number" name="destreza" min="1" max="20" required>
                     <p>Constitucion</p>
-                    <input type="number" name="constitucion" min="1" max="20" required="true">
+                    <input type="number" name="constitucion" min="1" max="20" required>
                     <p>Inteligencia</p>
-                    <input type="number" name="inteligencia" min="1" max="20" required="true">
+                    <input type="number" name="inteligencia" min="1" max="20" required>
                     <p>Sabiduria</p>
-                    <input type="number" name="sabiduria" min="1" max="20" required="true">
+                    <input type="number" name="sabiduria" min="1" max="20" required>
                     <p>Carisma</p>
-                    <input type="number" name="carisma" min="1" max="20" required="true">
+                    <input type="number" name="carisma" min="1" max="20" required>
                 </section>
 
                 <section>
                     <h2>Competencias</h2>
                     <p>Bonificador</p>
-                    <input type="number" name="bonificador" required="true">
+                    <input type="number" name="bonificador" required>
                     <p>Salvaciones</p>
                     <input type="checkbox" name="atributofuerza" value="fuerza">
-                    <label for="atributofuerza"> Fuerza</label>
+                    <label>Fuerza</label>
                     <p></p>
                     <input type="checkbox" name="atributodestreza" value="destreza">
-                    <label for="atributodestreza"> Destreza</label>
+                    <label> Destreza</label>
                     <p></p>
                     <input type="checkbox" name="atributoconstitucion" value="constitucion">
-                    <label for="atributoconstitucion"> Constitucion</label>
+                    <label> Constitucion</label>
                     <p></p>
                     <input type="checkbox" name="atributointeligencia" value="inteligencia">
-                    <label for="atributointeligencia"> Inteligencia</label>
+                    <label> Inteligencia</label>
                     <p></p>
                     <input type="checkbox" name="atributosabiduria" value="sabiduria">
-                    <label for="atributosabiduria"> Sabiduria</label>
+                    <label> Sabiduria</label>
                     <p></p>
                     <input type="checkbox" name="atributocarisma" value="carisma">
-                    <label for="atributocarisma"> Carisma</label>
+                    <label> Carisma</label>
                     <p></p>
                     <h3>Idiomas</h3>
                     <input type="button" onclick="generador.añadirIdioma()" value="Añadir idioma" id="idiomas">
@@ -127,19 +128,21 @@
                 </section>
                 <section>
                     <h2>Iventario</h2>
-                    <input type="button" onclick="generador.añadirObjeto()" value="Añadir objeto" id="inventario"> 
+                    <input type="button" onclick="generador.añadirObjeto()" value="Añadir objeto" id="inventario">
                 </section>
                 <section>
                     <h2>Magias</h2>
                     <p>Atributo magico</p>
-                    <input type="text" name="atrMag" required="true">
+                    <input type="text" name="atrMag" required>
                     <p>Salvacion magica</p>
-                    <input type="number" name="salMag" required="true">
+                    <input type="number" name="salMag" required>
                     <p>Bonificador</p>
-                    <input type="number" name="bofMag" required="true">
-                    <input type="button" onclick="generador.añadirNivel()" value="Añadir Nivel" id="nivel"> 
+                    <input type="number" name="bofMag" required>
+                    <input type="button" onclick="generador.añadirNivel()" value="Añadir Nivel" id="nivel">
                 </section>
                 <p><input type="submit"></p>
+            </form>
+        </section>
     </main>
 
     <footer>

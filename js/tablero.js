@@ -1,22 +1,5 @@
 class Cargador {
-  constructor() {
-    this.zonaDrop = document.getElementById("drop-area");
-  }
-
-  highlight() {
-    this.zonaDrop.classList.add("highlight");
-  }
-
-  unhighlight() {
-    this.zonaDrop.classList.remove("highlight");
-  }
-
-  drop(e) {
-    var dt = e.dataTransfer;
-    var files = dt.files;
-
-    this.leerArchivo(files);
-  }
+  constructor() {}
 
   leerArchivo(files) {
     var archivo = files[0];
@@ -140,43 +123,9 @@ class Dibujo {
 }
 
 class GestorEventos {
-  constructor(dibujo, cargador) {
+  constructor(dibujo) {
     this.dibujo = dibujo;
     var canvas = dibujo.canvas;
-    var zonaDrop = cargador.zonaDrop;
-
-    //Gestionamos los eventos de la zona de drop
-    //Eliminamos comportamientos por defecto
-    zonaDrop.addEventListener("dragenter", this.evitarPorDefecto, false);
-    zonaDrop.addEventListener("dragover", this.evitarPorDefecto, false);
-    zonaDrop.addEventListener("dragleave", this.evitarPorDefecto, false);
-    zonaDrop.addEventListener("drop", this.evitarPorDefecto, false);
-
-    //Añadimos comportamiento grafico
-    zonaDrop.addEventListener(
-      "dragenter",
-      cargador.highlight.bind(cargador),
-      false
-    );
-    zonaDrop.addEventListener(
-      "dragover",
-      cargador.highlight.bind(cargador),
-      false
-    );
-
-    zonaDrop.addEventListener(
-      "dragleave",
-      cargador.unhighlight.bind(cargador),
-      false
-    );
-    zonaDrop.addEventListener(
-      "drop",
-      cargador.unhighlight.bind(cargador),
-      false
-    );
-
-    //Añadimos comportamiento drop
-    zonaDrop.addEventListener("drop", cargador.drop.bind(cargador), false);
 
     //Gestionamos los eventos del canvas
     canvas.onmousedown = this.handleMouseDown.bind(this);
@@ -214,7 +163,7 @@ class GestorEventos {
     e.stopPropagation();
   }
 }
-/*
+
 window.onscroll = function (e) {
   dibujo.reOffset();
 };
@@ -224,11 +173,10 @@ window.onresize = function (e) {
 canvas.onresize = function (e) {
   dibujo.reOffset();
 };
-*/
 
 class Dado {
   constructor() {
-    this.url = "http://roll.diceapi.com/json/";
+    this.url = "//roll.diceapi.com/json/";
     this.error =
       "<h2>Error(No puedo obtener información de <a href='http://roll.diceapi.com/'>diceApi</a>)</h2>";
     this.correcto = "Valor de tirada ";
@@ -278,6 +226,10 @@ class Dado {
 
 var dado = new Dado();
 
-//var dibujo = new Dibujo();
-//var cargador = new Cargador();
-//var gestor = new GestorEventos(dibujo, cargador);
+var dibujo = new Dibujo();
+var cargador = new Cargador();
+var gestor = new GestorEventos(dibujo, cargador);
+
+cargador.leerArchivo(
+  new File(["ficha negra"], "multimedia/Ficha negra.png", { type: "image/png" })
+);

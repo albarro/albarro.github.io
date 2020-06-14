@@ -82,18 +82,13 @@ class Lector {
       for (let i = 0; i < atris.length; i++) {
         salvaciones.push(atris.item(i).firstChild.data);
       }
-      var habils = competencias.getElementsByTagName('habilidades').item(0).getElementsByTagName('habilidade');
-      var habilidades = [];
-      for (let i = 0; i < habils.length; i++) {
-        habilidades.push(habils.item(i).firstChild.data);
-      }
       var ids = competencias.getElementsByTagName('idiomas').item(0).getElementsByTagName('idioma');
       var idiomas = [];
       for (let i = 0; i < ids.length; i++) {
         idiomas.push(ids.item(i).firstChild.data);
       }
 
-      competencias = new Competencias(bonificador,salvaciones,habilidades,idiomas);
+      competencias = new Competencias(bonificador,salvaciones,idiomas);
 
       var inventario = personaje.getElementsByTagName('inventario').item(0);
       var objs = inventario.getElementsByTagName('objeto');
