@@ -1,0 +1,66 @@
+<!ELEMENT personajes (personaje+)>
+<!ELEMENT personaje (raza, descripcion, transfondo, 
+    alinemiento,imagen, vida, movimiento, nivel, clase, 
+    experiencia, atributos, competencias, inventario, 
+    magias, referencias?, autor?)>
+
+<!ATTLIST personaje nombre CDATA #REQUIRED>
+<!ELEMENT raza (#PCDATA)>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT transfondo (#PCDATA)>
+<!ELEMENT alinemiento (#PCDATA)>
+<!ELEMENT imagen (#PCDATA)>
+<!ELEMENT vida (#PCDATA)>
+<!ELEMENT movimiento (#PCDATA)>
+<!ELEMENT nivel (#PCDATA)>
+<!ELEMENT clase (#PCDATA)>
+<!ELEMENT experiencia (#PCDATA)>
+
+
+<!ELEMENT atributos (fuerza, destreza, constitucion, inteligencia,
+sabiduria,carisma)>
+<!ELEMENT fuerza (#PCDATA)>
+<!ELEMENT destreza (#PCDATA)>
+<!ELEMENT constitucion (#PCDATA)>
+<!ELEMENT inteligencia (#PCDATA)>
+<!ELEMENT sabiduria (#PCDATA)>
+<!ELEMENT carisma (#PCDATA)>
+
+
+<!ELEMENT competencias (bonificador, salvaciones,
+    idiomas)>
+<!ELEMENT bonificador (#PCDATA)>
+
+<!ELEMENT salvaciones (atributo+)>
+<!ELEMENT atributo (#PCDATA)>
+
+<!ELEMENT idiomas (idioma+)>
+<!ELEMENT idioma (#PCDATA)>
+
+
+<!ELEMENT inventario (objeto+)>
+<!ELEMENT objeto (descripcion, referencia?, imagenes?, video?)>
+<!ATTLIST objeto nombre CDATA #REQUIRED>
+<!ELEMENT referencia (#PCDATA)>
+
+<!ELEMENT imagenes (imagen+)>
+<!ELEMENT imagen (#PCDATA)>
+
+<!ELEMENT video (#PCDATA)>
+
+<!ELEMENT magias (atributo, salvacion, bonificador, nivelMagia*)>
+<!ELEMENT salvacion (#PCDATA)>
+
+<!ELEMENT nivelMagia (usos, magia+)>
+<!ATTLIST nivelMagia n CDATA #REQUIRED>
+<!ELEMENT usos (#PCDATA)>
+
+<!ELEMENT magia (descripcion, componentes, referencia?, 
+    imagenes?, video?)>
+<!ATTLIST magia nombre CDATA #REQUIRED>
+<!ELEMENT componentes (#PCDATA)>
+
+
+<!ELEMENT referencias (referencia+)>
+<!ELEMENT referencia (#PCDATA)>
+<!ELEMENT autor (#PCDATA)>
