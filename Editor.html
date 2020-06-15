@@ -58,73 +58,83 @@
             <form name="formulario" method="post" onSubmit="generador.validar();">
                 <section>
                     <h2>Informacion general</h2>
-                    <p>Nombre</p>
-                    <input type="text" name="nombre" required>
-                    <p>Raza</p>
-                    <input type="text" name="raza" required>
-                    <p>Descripcion</p>
-                    <input type="text" name="descripcion" required>
-                    <p>Transfondo</p>
-                    <input type="text" name="transfondo" required>
-                    <p>Alinemiento</p>
-                    <input type="text" name="alinemiento" required>
-                    <p>Imagen</p>
-                    <input type="text" name="imagen" required>
 
-                    <p>Vida</p>
-                    <input type="number" name="vida" required>
-                    <p>Movimiento</p>
-                    <input type="number" name="movimiento" required>
+                    <p><label for="nombre">Nombre</label></p>
+                    <input type="text" name="nombre" id="nombre" required>
 
-                    <p>Nivel</p>
-                    <input type="number" name="nivel" required>
-                    <p>Clase</p>
-                    <input type="text" name="clase" required>
-                    <p>Experiencia</p>
-                    <input type="number" name="experiencia" required>
+                    <p><label for="raza">Raza</label></p>
+                    <input type="text" name="raza" id="raza" required>
+
+                    <p><label for="descripcion">Descripcion</label></p>
+                    <input type="text" name="descripcion" id="descripcion" required>
+
+                    <p><label for="transfondo">Transfondo</label></p>
+                    <input type="text" name="transfondo" id="transfondo" required>
+
+                    <p><label for="alinemiento">Alinemiento</label></p>
+                    <input type="text" name="alinemiento" id="alinemiento" required>
+
+                    <p><label for="imagen">Imagen</label></p>
+                    <input type="text" name="imagen" id="imagen" required>
+
+                    <p><label for="vida">Vida</label></p>
+                    <input type="number" name="vida" id="vida" required>
+
+                    <p><label for="movimiento">Movimiento</label></p>
+                    <input type="number" name="movimiento" id="movimiento" required>
+
+                    <p><label for="nivelI">Nivel</label></p>
+                    <input type="number" name="nivel" id="nivelI" required>
+
+                    <p><label for="clase">Clase</label></p>
+                    <input type="text" name="clase" id="clase" required>
+
+                    <p><label for="experiencia">Experiencia</label></p>
+                    <input type="number" name="experiencia" id="experiencia" required>
+
                 </section>
                 <section>
                     <h2>Atributos</h2>
-                    <p>Fuerza</p>
-                    <input type="number" name="fuerza" min="1" max="20" required>
-                    <p>Destreza</p>
-                    <input type="number" name="destreza" min="1" max="20" required>
-                    <p>Constitucion</p>
-                    <input type="number" name="constitucion" min="1" max="20" required>
-                    <p>Inteligencia</p>
-                    <input type="number" name="inteligencia" min="1" max="20" required>
-                    <p>Sabiduria</p>
-                    <input type="number" name="sabiduria" min="1" max="20" required>
-                    <p>Carisma</p>
-                    <input type="number" name="carisma" min="1" max="20" required>
+                    <p><label for="fuerza">Fuerza</label></p>
+                    <input type="number" name="fuerza" id="fuerza" min="1" max="20" required>
+                    <p><label for="destreza">Destreza</label></p>
+                    <input type="number" name="destreza" id="destreza" min="1" max="20" required>
+                    <p><label for="constitucion">Constitucion</label></p>
+                    <input type="number" name="constitucion" id="constitucion" min="1" max="20" required>
+                    <p><label for="inteligencia">Inteligencia</label></p>
+                    <input type="number" name="inteligencia" id="inteligencia" min="1" max="20" required>
+                    <p><label for="sabiduria">Sabiduria</label></p>
+                    <input type="number" name="sabiduria" id="sabiduria" min="1" max="20" required>
+                    <p><label for="carisma">Carisma</label></p>
+                    <input type="number" name="carisma" id="carisma" min="1" max="20" required>
                 </section>
 
                 <section>
                     <h2>Competencias</h2>
-                    <p>Bonificador</p>
-                    <input type="number" name="bonificador" required>
+                    <p><label for="bonificador">Bonificador</label></p>
+                    <input type="number" name="bonificador" id="bonificador" required>
                     <p>Salvaciones</p>
-                    <input type="checkbox" name="atributofuerza" value="fuerza">
-                    <label>Fuerza</label>
+                    <input type="checkbox" name="atributofuerza" id="atributofuerza" value="fuerza">
+                    <label for="atributofuerza">Fuerza</label>
                     <p></p>
-                    <input type="checkbox" name="atributodestreza" value="destreza">
-                    <label> Destreza</label>
+                    <input type="checkbox" name="atributodestreza" id="atributodestreza" value="destreza">
+                    <label for="atributodestreza"> Destreza</label>
                     <p></p>
-                    <input type="checkbox" name="atributoconstitucion" value="constitucion">
-                    <label> Constitucion</label>
+                    <input type="checkbox" name="atributoconstitucion" id="atributoconstitucion" value="constitucion">
+                    <label for="atributoconstitucion"> Constitucion</label>
                     <p></p>
-                    <input type="checkbox" name="atributointeligencia" value="inteligencia">
-                    <label> Inteligencia</label>
+                    <input type="checkbox" name="atributointeligencia" id="atributointeligencia" value="inteligencia">
+                    <label for="atributointeligencia"> Inteligencia</label>
                     <p></p>
-                    <input type="checkbox" name="atributosabiduria" value="sabiduria">
-                    <label> Sabiduria</label>
+                    <input type="checkbox" name="atributosabiduria" id="atributosabiduria" value="sabiduria">
+                    <label for="atributosabiduria"> Sabiduria</label>
                     <p></p>
-                    <input type="checkbox" name="atributocarisma" value="carisma">
-                    <label> Carisma</label>
+                    <input type="checkbox" name="atributocarisma" id="atributocarisma" value="carisma">
+                    <label for="atributocarisma"> Carisma</label>
                     <p></p>
-                    <h3>Idiomas</h3>
+                    <h3><label for="idioma">Idiomas</label></h3>
                     <input type="button" onclick="generador.añadirIdioma()" value="Añadir idioma" id="idiomas">
-                    <p><input type="text" name="idioma" required></p>
+                    <p><input type="text" name="idioma" id="idioma" required></p>
                 </section>
                 <section>
                     <h2>Iventario</h2>
@@ -132,15 +142,16 @@
                 </section>
                 <section>
                     <h2>Magias</h2>
-                    <p>Atributo magico</p>
-                    <input type="text" name="atrMag" required>
-                    <p>Salvacion magica</p>
-                    <input type="number" name="salMag" required>
-                    <p>Bonificador</p>
-                    <input type="number" name="bofMag" required>
+                    <p><label for="atrMag">Atributo magico</label></p>
+                    <input type="text" name="atrMag" id="atrMag" required>
+                    <p><label for="salMag">Salvacion magica</label></p>
+                    <input type="number" name="salMag" id="salMag" required>
+                    <p><label for="bofMag">Bonificador</label></p>
+                    <input type="number" name="bofMag" id="bofMag" required>
                     <input type="button" onclick="generador.añadirNivel()" value="Añadir Nivel" id="nivel">
                 </section>
-                <p><input type="submit"></p>
+                <p>
+                    <input type="submit" id="fin" value="Crear"></p>
             </form>
         </section>
     </main>
@@ -155,7 +166,7 @@
             <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss"
                 alt="¡CSS Válido!" />
         </a>
-        
+
     </footer>
 
 </body>
