@@ -1,13 +1,35 @@
 class Localizador {
   constructor() {  }
   cargar(){
-    navigator.geolocation.getCurrentPosition(this.mostrar, this.errores);
+    this.madrid = new google.maps.LatLng(
+      40.416117,
+      -3.704134
+    );
+    navigator.geolocation.getCurrentPosition(this.procesar, this.errores);
   }
-  mostrar(posicion) {
+  procesar(posicion) {
 
-    var mapurl = 'http://maps.google.com/maps/api/staticmap?center=' + posicion.coords.latitude + ',' + posicion.coords.longitude + '&zoom=12&size=400x400&sensor=false&markers='
-      + posicion.coords.latitude + ',' + posicion.coords.longitude + '&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU';
-    $("#ubicacion").after('<figure> <img alt="Mapa con ubicacion del usuario" src="' + mapurl + '"><figure>');
+    var lat = posicion.coords.latitude;
+    var long =  posicion.coords.longitude;
+    localizador.posicionInicial = new google.maps.LatLng(
+      lat,
+      long
+    );
+
+    localizador.mostrar();
+  }
+  mostrar() {
+
+    var mapaOpciones = {
+      zoom: 15,
+      center: this.marcadorInicial
+    };
+    var mapa = new google.maps.Map(
+      document.getElementById("ubicacion"),
+      mapaOpciones
+    );
+
+    
   }
   errores(error) {
     alert('Error: ' + error.code + ' ' + error.message);
