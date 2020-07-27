@@ -153,25 +153,6 @@ class Lector {
 
       magias = new Magias(atri, sal, bon, niveles);
 
-      try {
-        let refs = personaje
-          .getElementsByTagName("referencias")
-          .item(0)
-          .getElementsByTagName("referencia");
-        let referencias = [];
-        for (let i = 0; i < refs.length; i++) {
-          referencias.push(refs.item(i).firstChild.data);
-        }
-      } catch (error) {
-        let referencias = null;
-      }
-
-      try {
-        let autor = personaje.getElementsByTagName("autor").item(0).firstChild
-          .data;
-      } catch (error) {
-        let autor = null;
-      }
 
       let per = new Personaje(
         nombre,
@@ -189,8 +170,8 @@ class Lector {
         competencias,
         inventario,
         magias,
-        referencias,
-        autor
+        null,
+        null
       );
 
       this.perjs.push(per);
