@@ -59,8 +59,6 @@ class Lector {
         .data;
       let experiencia = personaje.getElementsByTagName("experiencia").item(0)
         .firstChild.data;
-      let movimiento = personaje.getElementsByTagName("movimiento").item(0)
-        .firstChild.data;
 
       let atributos = personaje.getElementsByTagName("atributos").item(0);
 
