@@ -5,8 +5,8 @@
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <meta name="author" content="UO251322" />
-    <meta name="description" content="Docuemnto que trata la concepcion de la serie" />
-    <meta name="keywords" content="Los Soprano, los, soprano, serie, television, HBO" />
+    <meta name="description" content="Documento de creación de personajes" />
+    <meta name="keywords" content="Editor, personajes, xml, atributos" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Editor</title>
@@ -55,9 +55,9 @@
     <main>
         <section>
             <h2>Creador de personajes</h2>
-            <form name="formulario" method="post" onSubmit="generador.validar();">
+            <form name="formulario" onSubmit="generador.validar();">
                 <section>
-                    <h2>Informacion general</h2>
+                    <h2>Información general</h2>
 
                     <p><label for="nombre">Nombre</label></p>
                     <input type="text" name="nombre" id="nombre" required>
@@ -65,13 +65,13 @@
                     <p><label for="raza">Raza</label></p>
                     <input type="text" name="raza" id="raza" required>
 
-                    <p><label for="descripcion">Descripcion</label></p>
+                    <p><label for="descripcion">Descripción</label></p>
                     <input type="text" name="descripcion" id="descripcion" required>
 
-                    <p><label for="transfondo">Transfondo</label></p>
+                    <p><label for="transfondo">Trasfondo</label></p>
                     <input type="text" name="transfondo" id="transfondo" required>
 
-                    <p><label for="alinemiento">Alinemiento</label></p>
+                    <p><label for="alinemiento">Alineamiento</label></p>
                     <input type="text" name="alinemiento" id="alinemiento" required>
 
                     <p><label for="vida">Vida</label></p>
@@ -96,11 +96,11 @@
                     <input type="number" name="fuerza" id="fuerza" min="1" max="20" required>
                     <p><label for="destreza">Destreza</label></p>
                     <input type="number" name="destreza" id="destreza" min="1" max="20" required>
-                    <p><label for="constitucion">Constitucion</label></p>
+                    <p><label for="constitucion">Constitución</label></p>
                     <input type="number" name="constitucion" id="constitucion" min="1" max="20" required>
                     <p><label for="inteligencia">Inteligencia</label></p>
                     <input type="number" name="inteligencia" id="inteligencia" min="1" max="20" required>
-                    <p><label for="sabiduria">Sabiduria</label></p>
+                    <p><label for="sabiduria">Sabiduría</label></p>
                     <input type="number" name="sabiduria" id="sabiduria" min="1" max="20" required>
                     <p><label for="carisma">Carisma</label></p>
                     <input type="number" name="carisma" id="carisma" min="1" max="20" required>
@@ -118,13 +118,13 @@
                     <label for="atributodestreza"> Destreza</label>
                     <p></p>
                     <input type="checkbox" name="atributoconstitucion" id="atributoconstitucion" value="constitucion">
-                    <label for="atributoconstitucion"> Constitucion</label>
+                    <label for="atributoconstitucion"> Constitución</label>
                     <p></p>
                     <input type="checkbox" name="atributointeligencia" id="atributointeligencia" value="inteligencia">
                     <label for="atributointeligencia"> Inteligencia</label>
                     <p></p>
                     <input type="checkbox" name="atributosabiduria" id="atributosabiduria" value="sabiduria">
-                    <label for="atributosabiduria"> Sabiduria</label>
+                    <label for="atributosabiduria"> Sabiduría</label>
                     <p></p>
                     <input type="checkbox" name="atributocarisma" id="atributocarisma" value="carisma">
                     <label for="atributocarisma"> Carisma</label>
@@ -134,14 +134,14 @@
                     <p><input type="text" name="idioma" id="idioma" required></p>
                 </section>
                 <section>
-                    <h2>Iventario</h2>
+                    <h2>Inventario</h2>
                     <input type="button" onclick="generador.añadirObjeto()" value="Añadir objeto" id="inventario">
                 </section>
                 <section>
                     <h2>Magias</h2>
-                    <p><label for="atrMag">Atributo magico</label></p>
+                    <p><label for="atrMag">Atributo mágico</label></p>
                     <input type="text" name="atrMag" id="atrMag" required>
-                    <p><label for="salMag">Salvacion magica</label></p>
+                    <p><label for="salMag">Salvación mágica</label></p>
                     <input type="number" name="salMag" id="salMag" required>
                     <p><label for="bofMag">Bonificador</label></p>
                     <input type="number" name="bofMag" id="bofMag" required>
