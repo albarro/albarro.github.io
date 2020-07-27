@@ -51,8 +51,7 @@ class Lector {
       var alinemiento = personaje.getElementsByTagName("alinemiento").item(0)
         .firstChild.data;
 
-      var imagen = personaje.getElementsByTagName("imagen").item(0).firstChild
-        .data;
+      var imagen = "null";
 
       var vida = personaje.getElementsByTagName("vida").item(0).firstChild.data;
       var movimiento = personaje.getElementsByTagName("movimiento").item(0)
