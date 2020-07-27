@@ -14,7 +14,6 @@
         <xs:element ref="descripcion" />
         <xs:element ref="transfondo" />
         <xs:element ref="alinemiento" />
-        <xs:element ref="imagen" />
         <xs:element ref="vida" />
         <xs:element ref="movimiento" />
         <xs:element ref="nivel" />
@@ -24,8 +23,6 @@
         <xs:element ref="competencias" />
         <xs:element ref="inventario" />
         <xs:element ref="magias" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="referencias" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="autor" />
       </xs:sequence>
       <xs:attribute name="nombre" type="xs:string" use="required" />
     </xs:complexType>
@@ -34,7 +31,6 @@
   <xs:element name="descripcion" type="xs:string" />
   <xs:element name="transfondo" type="xs:string" />
   <xs:element name="alinemiento" type="xs:string" />
-  <xs:element name="imagen" type="xs:string" />
   <xs:element name="vida" type="xs:integer" />
   <xs:element name="movimiento" type="xs:integer" />
   <xs:element name="nivel" type="xs:integer" />
@@ -137,22 +133,10 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="descripcion" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="referencia" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="imagenes" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="video" />
       </xs:sequence>
       <xs:attribute name="nombre" type="xs:string" use="required" />
     </xs:complexType>
   </xs:element>
-  <xs:element name="referencia" type="xs:string" />
-  <xs:element name="imagenes">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="1" maxOccurs="3" ref="imagen" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="video" type="xs:string" />
   <xs:element name="magias">
     <xs:complexType>
       <xs:sequence>
@@ -179,20 +163,9 @@
       <xs:sequence>
         <xs:element ref="descripcion" />
         <xs:element ref="componentes" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="referencia" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="imagenes" />
-        <xs:element minOccurs="0" maxOccurs="1" ref="video" />
       </xs:sequence>
       <xs:attribute name="nombre" type="xs:string" use="required" />
     </xs:complexType>
   </xs:element>
   <xs:element name="componentes" type="xs:string" />
-  <xs:element name="referencias">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="8" ref="referencia" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="autor" type="xs:string" />
 </xs:schema>

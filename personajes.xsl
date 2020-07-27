@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:x="http://tempuri.org/personajes" exclude-result-prefixes="x">
 
     <xsl:output method="html" version="5.0" encoding="UTF-8" indent="yes" />
@@ -51,176 +51,174 @@
 
     <xsl:template match="x:personaje">
         <section>
-            <article>
-                <h3>
-                    <xsl:value-of select="@nombre" />
-                </h3>
-                <p>
-                    Raza:
-                    <xsl:value-of select="x:raza" />
-                </p>
-                <p>
-                    Descripcion:
-                    <xsl:value-of select="x:descripcion" />
-                </p>
-                <p>
-                    transfondo:
-                    <xsl:value-of select="x:transfondo" />
-                </p>
-                <p>
-                    alinemiento:
-                    <xsl:value-of select="x:alinemiento" />
-                </p>
-                <p>
-                    imagen:
-                    <xsl:value-of select="x:imagen" />
-                </p>
+            <h3>
+                <xsl:value-of select="@nombre" />
+            </h3>
+            <p>
+                Raza:
+                <xsl:value-of select="x:raza" />
+            </p>
+            <p>
+                Descripcion:
+                <xsl:value-of select="x:descripcion" />
+            </p>
+            <p>
+                transfondo:
+                <xsl:value-of select="x:transfondo" />
+            </p>
+            <p>
+                alinemiento:
+                <xsl:value-of select="x:alinemiento" />
+            </p>
+            <p>
+                imagen:
+                <xsl:value-of select="x:imagen" />
+            </p>
 
+            <p>
+                Vida:
+                <xsl:value-of select="x:vida" />
+            </p>
+            <p>
+                Movimiento
+                <xsl:value-of select="x:movimiento" />
+            </p>
+
+            <p>
+                Nivel:
+                <xsl:value-of select="x:nivel" />
+            </p>
+            <p>
+                Clase:
+                <xsl:value-of select="x:clase" />
+            </p>
+            <p>
+                Experiencia:
+                <xsl:value-of select="x:experiencia" />
+            </p>
+
+            <section>
+                <h4>Atributos</h4>
                 <p>
-                    Vida:
-                    <xsl:value-of select="x:vida" />
+                    Fuerza:
+                    <xsl:value-of select="x:atributos/x:fuerza" />
                 </p>
                 <p>
-                    Movimiento
-                    <xsl:value-of select="x:movimiento" />
-                </p>
-
-                <p>
-                    Nivel:
-                    <xsl:value-of select="x:nivel" />
+                    destreza:
+                    <xsl:value-of select="x:atributos/x:destreza" />
                 </p>
                 <p>
-                    Clase:
-                    <xsl:value-of select="x:clase" />
+                    constitucion:
+                    <xsl:value-of select="x:atributos/x:constitucion" />
                 </p>
                 <p>
-                    Experiencia:
-                    <xsl:value-of select="x:experiencia" />
+                    inteligencia:
+                    <xsl:value-of select="x:atributos/x:inteligencia" />
                 </p>
+                <p>
+                    sabiduria:
+                    <xsl:value-of select="x:atributos/x:sabiduria" />
+                </p>
+                <p>
+                    carisma:
+                    <xsl:value-of select="x:atributos/x:carisma" />
+                </p>
+            </section>
 
-                <section>
-                    <h4>Atributos</h4>
-                    <p>
-                        Fuerza:
-                        <xsl:value-of select="x:atributos/x:fuerza" />
-                    </p>
-                    <p>
-                        destreza:
-                        <xsl:value-of select="x:atributos/x:destreza" />
-                    </p>
-                    <p>
-                        constitucion:
-                        <xsl:value-of select="x:atributos/x:constitucion" />
-                    </p>
-                    <p>
-                        inteligencia:
-                        <xsl:value-of select="x:atributos/x:inteligencia" />
-                    </p>
-                    <p>
-                        sabiduria:
-                        <xsl:value-of select="x:atributos/x:sabiduria" />
-                    </p>
-                    <p>
-                        carisma:
-                        <xsl:value-of select="x:atributos/x:carisma" />
-                    </p>
-                </section>
-
-                <section>
-                    <h4>competencias</h4>
-                    <p>
-                        bonificador:
-                        <xsl:value-of select="x:competencias/x:bonificador" />
-                    </p>
-                    <xsl:for-each select="x:competencias/x:salvaciones/x:atributo">
-                        <p>
-                            atributo:
-                            <xsl:value-of select="." />
-                        </p>
-                    </xsl:for-each>
-                    <xsl:for-each select="x:competencias/x:idiomas/x:idioma">
-                        <p>
-                            idioma:
-                            <xsl:value-of select="." />
-                        </p>
-                    </xsl:for-each>
-                </section>
-
-                <section>
-                    <h4>inventario</h4>
-                    <xsl:for-each select="x:inventario/x:objeto">
-                        <dt>
-                            <xsl:value-of select="@nombre" />
-                        </dt>
-                        <dd>
-                            descripcion:
-                            <xsl:value-of select="x:descripcion" />
-                        </dd>
-                    </xsl:for-each>
-                </section>
-
-                <section>
-                    <h4>magias</h4>
+            <section>
+                <h4>Competencias</h4>
+                <p>
+                    bonificador:
+                    <xsl:value-of select="x:competencias/x:bonificador" />
+                </p>
+                <xsl:for-each select="x:competencias/x:salvaciones/x:atributo">
                     <p>
                         atributo:
-                        <xsl:value-of select="x:magias/x:atributo" />
+                        <xsl:value-of select="." />
+                    </p>
+                </xsl:for-each>
+                <xsl:for-each select="x:competencias/x:idiomas/x:idioma">
+                    <p>
+                        idioma:
+                        <xsl:value-of select="." />
+                    </p>
+                </xsl:for-each>
+            </section>
+
+            <section>
+                <h4>Inventario</h4>
+                <xsl:for-each select="x:inventario/x:objeto">
+                    <dt>
+                        <xsl:value-of select="@nombre" />
+                    </dt>
+                    <dd>
+                        descripcion:
+                        <xsl:value-of select="x:descripcion" />
+                    </dd>
+                </xsl:for-each>
+            </section>
+
+            <section>
+                <h4>Magias</h4>
+                <p>
+                    atributo:
+                    <xsl:value-of select="x:magias/x:atributo" />
+                </p>
+                <p>
+                    salvacion:
+                    <xsl:value-of select="x:magias/x:salvacion" />
+                </p>
+                <p>
+                    bonificador:
+                    <xsl:value-of select="x:magias/x:bonificador" />
+                </p>
+                <xsl:for-each select="x:magias/x:nivelMagia">
+                    <p>
+                        Nivel
+                        <xsl:value-of select="@n" />
                     </p>
                     <p>
-                        salvacion:
-                        <xsl:value-of select="x:magias/x:salvacion" />
+                        usos:
+                        <xsl:value-of select="x:usos" />
                     </p>
-                    <p>
-                        bonificador:
-                        <xsl:value-of select="x:magias/x:bonificador" />
-                    </p>
-                    <xsl:for-each select="x:magias/x:nivelMagia">
+                    <xsl:for-each select="x:magia">
                         <p>
-                            Nivel
-                            <xsl:value-of select="@n" />
+                            <xsl:value-of select="@nombre" />
                         </p>
                         <p>
-                            usos:
-                            <xsl:value-of select="x:usos" />
+                            descripcion:
+                            <xsl:value-of select="x:descripcion" />
                         </p>
-                        <xsl:for-each select="x:magia">
+                        <p>
+                            componentes:
+                            <xsl:value-of select="x:componentes" />
+                        </p>
+                        <xsl:for-each select="x:referencias/x:referencia">
                             <p>
-                                <xsl:value-of select="@nombre" />
+                                referencia:
+                                <xsl:value-of select="." />
                             </p>
-                            <p>
-                                descripcion:
-                                <xsl:value-of select="x:descripcion" />
-                            </p>
-                            <p>
-                                componentes:
-                                <xsl:value-of select="x:componentes" />
-                            </p>
-                            <xsl:for-each select="x:referencias/x:referencia">
-                                <p>
-                                    referencia:
-                                    <xsl:value-of select="." />
-                                </p>
-                            </xsl:for-each>
                         </xsl:for-each>
                     </xsl:for-each>
-                </section>
+                </xsl:for-each>
+            </section>
 
-                <footer>
-                    <xsl:for-each select="x:referencias/x:referencia">
-                        <p>
-                            referencia:
-                            <xsl:value-of select="." />
-                        </p>
-                    </xsl:for-each>
+            <footer>
+                <xsl:for-each select="x:referencias/x:referencia">
+                    <p>
+                        referencia:
+                        <xsl:value-of select="." />
+                    </p>
+                </xsl:for-each>
 
-                    <xsl:for-each select="x:autor">
-                        <p>
-                            autor:
-                            <xsl:value-of select="." />
-                        </p>
-                    </xsl:for-each>
+                <xsl:for-each select="x:autor">
+                    <p>
+                        autor:
+                        <xsl:value-of select="." />
+                    </p>
+                </xsl:for-each>
 
-                </footer>
-            </article>
+            </footer>
         </section>
     </xsl:template>
 

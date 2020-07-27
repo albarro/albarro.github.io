@@ -43,36 +43,28 @@ class Personaje {
   }
 
   texto() {
-    var texto = this.nombre + "\n";
+    var texto ="<section>";
 
-    texto += "Raza: " + this.raza + "\n";
-    texto += "Descripcion: " + this.descripcion + "\n";
-    texto += "Transfondo: " + this.transfondo + "\n";
-    texto += "Alineamiento: " + this.alinemiento + "\n";
 
-    texto += "Vida: " + this.vida + "\n";
-    texto += "Movimiento: " + this.movimiento + "\n";
+    texto += "<h3>" + this.nombre + "</h3>";
+    texto += "<p>Raza: " + this.raza + "</p>";
+    texto += "<p>Descripcion: " + this.descripcion + "</p>";
+    texto += "<p>Transfondo: " + this.transfondo + "</p>";
+    texto += "<p>Alineamiento: " + this.alinemiento + "</p>";
 
-    texto += "Nivel: " + this.nivel + "\n";
-    texto += "Clase: " + this.clase + "\n";
-    texto += "Experiencia: " + this.experiencia + "\n";
+    texto += "<p>Vida: " + this.vida + "</p>";
+    texto += "<p>Movimiento: " + this.movimiento + "</p>";
+
+    texto += "<p>Nivel: " + this.nivel + "</p>";
+    texto += "<p>Clase: " + this.clase + "</p>";
+    texto += "<p>Experiencia: " + this.experiencia + "</p>";
 
     texto += this.atributos.texto();
     texto += this.competencias.texto();
     texto += this.inventario.texto();
     texto += this.magias.texto();
 
-    /* No necesarios para el tablero
-    if (this.referencias != null) {
-      for (let i = 0; i < this.referencias.length; i++) {
-        texto += "Referencia: " + this.referencias[i] + "\n";
-      }
-    }
-
-    if (this.autor) {
-      texto += "Autor: " + this.autor + "\n";
-    }
-    */
+    texto +="</section>";
     return texto;
   }
 
@@ -83,7 +75,6 @@ class Personaje {
     xml += "<descripcion>" + this.descripcion + "</descripcion>";
     xml += "<transfondo>" + this.transfondo + "</transfondo>";
     xml += "<alinemiento>" + this.alinemiento + "</alinemiento>";
-    xml += "<imagen>" + this.imagen + "</imagen>";
 
     xml += "<vida>" + this.vida + "</vida>";
     xml += "<movimiento>" + this.movimiento + "</movimiento>";
@@ -130,13 +121,17 @@ class Atributos {
   }
 
   texto() {
-    var texto = "Atributos: \n";
-    texto += "Fuerza: " + this.fuerza + "\n";
-    texto += "Destreza: " + this.destreza + "\n";
-    texto += "Constitucion: " + this.constitucion + "\n";
-    texto += "Inteligencia: " + this.inteligencia + "\n";
-    texto += "Sabiduria: " + this.sabiduria + "\n";
-    texto += "Carisma: " + this.carisma + "\n";
+    var texto ="<section>";
+
+    texto = "<h4>Atributos</h4>";
+    texto += "<p>Fuerza: " + this.fuerza + "</p>";
+    texto += "<p>Destreza: " + this.destreza + "</p>";
+    texto += "<p>Constitucion: " + this.constitucion + "</p>";
+    texto += "<p>Inteligencia: " + this.inteligencia + "</p>";
+    texto += "<p>Sabiduria: " + this.sabiduria + "</p>";
+    texto += "<p>Carisma: " + this.carisma + "</p>";
+
+    texto +="</section>";
     return texto;
   }
 
@@ -161,20 +156,24 @@ class Competencias {
   }
 
   texto() {
-    var texto = "Competencias: \n";
-    texto += "Bonificador: +" + this.bonificador + "\n";
+    var texto ="<section>";
 
-    texto += "Salvaciones: ";
+    texto += "<h4>Competencias</h4>";
+
+    texto += "<p>Bonificador: +" + this.bonificador + "</p>";
+    texto += "<p>Salvaciones: ";
     for (let i = 0; i < this.salvaciones.length; i++) {
       texto += this.salvaciones[i] + ",";
     }
-    texto += "\n";
+    texto += "</p>";
 
-    texto += "Idiomas: ";
+    texto += "<p>Idiomas: ";
     for (let i = 0; i < this.idiomas.length; i++) {
       texto += this.idiomas[i] + ",";
     }
-    texto += "\n";
+    texto += "</p>";
+
+    texto +="</section>";
     return texto;
   }
 
@@ -210,19 +209,8 @@ class Objeto {
   }
 
   texto() {
-    var texto = "Objeto: " + this.nombre + "\n";
-    texto += "\t Descripcion: " + this.descripcion + "\n";
-    if (this.referencia != null) {
-      texto += "\t Referencia: " + this.referencia + "\n";
-    }
-    if (this.imagenes != null) {
-      for (let i = 0; i < this.imagenes.length; i++) {
-        texto += "\t Imagen: " + this.imagenes[i] + "\n";
-      }
-    }
-    if (this.video) {
-      texto += "\t Video: " + this.video + "\n";
-    }
+    var texto = "<dt>" + this.nombre + "</dt>";
+    texto += "<dd>Descripcion: " + this.descripcion + "</dd>";
     return texto;
   }
 
@@ -253,11 +241,13 @@ class Inventario {
   }
 
   texto() {
-    var texto = "-------------------------- \n";
+    var texto = "<section>";
+
+    texto += "<h4>Inventario</h4>";
     for (let i = 0; i < this.objetos.length; i++) {
       texto += this.objetos[i].texto();
     }
-    texto += "-------------------------- \n";
+    texto += "</section>";
     return texto;
   }
 
@@ -281,12 +271,15 @@ class Magias {
   }
 
   texto() {
-    var texto = "Magia: \n";
-    texto += "Atributo magico: " + this.atributo + " Salvacion magica: " + this.salvacion;
-    texto += " Bonificador magico: " + this.bonificador + "\n";
+    var texto = "<section>";
+    texto += "<h4>Magias</h4>";
+    texto += "<p>Atributo magico: " + this.atributo + "</p>";
+    texto += "<p>Salvacion magica: " + this.salvacion + "</p>";
+    texto += "<p>Bonificador magico: " + this.bonificador + "</p>";
     for (let i = 0; i < this.nivelesMagia.length; i++) {
       texto += this.nivelesMagia[i].texto();
     }
+    texto += "</section>";
     return texto;
   }
 
@@ -312,11 +305,13 @@ class NivelMagia {
   }
 
   texto() {
-    var texto = "Nivel: " + this.nivel + " Usos: "+ this.usos + "\n";
-    texto += "Magias: \n";
+    var texto = "<section>";
+    texto += "<p>Nivel: " + this.nivel + "</p> <p>Usos: "+ this.usos + "</p>";
+    texto += "<h5>Magias:</h5>";
     for (let i = 0; i < this.magias.length; i++) {
       texto += this.magias[i].texto();
     }
+    texto += "</section>";
     return texto;
   }
 
@@ -345,9 +340,9 @@ class Magia {
   }
 
   texto() {
-    var texto = "Magia: " + this.nombre + "\n";
-    texto += "\t Descripcion: " + this.descripcion + "\n";
-    texto += "\t Componentes: " + this.componentes + "\n";
+    var texto = "<h6>" + this.nombre + "</h6>";
+    texto += "<p> Descripcion: " + this.descripcion + "</p>";
+    texto += "<p> Componentes: " + this.componentes + "</p>";
     return texto;
   }
 

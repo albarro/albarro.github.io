@@ -16,9 +16,10 @@
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <link rel="stylesheet" type="text/css" href="css/grid-main.css" />
     <link rel="stylesheet" type="text/css" href="css/tablero.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/Personaje.js"></script>
     <script src="js/LectorXml.js"></script>
+    <script src="js/Dado.js"></script>
 </head>
 
 <body>
@@ -51,44 +52,22 @@
         <section>
             <h2>Personajes:</h2>
             <button onclick="lector.cargarDatos()">Cargar personajes</button>
-            <pre id="areaTexto"></pre>
+            <section id="areaTexto"></section>
         </section>
 
         <section>
-            <h2>Selecionar dado:</h2>
-            <button onclick="dado.tirarDado('d4')">Tirar dado d4</button>
-            <button onclick="dado.tirarDado('d6')">Tirar dado d6</button>
-            <button onclick="dado.tirarDado('d10')">Tirar dado d10</button>
-            <button onclick="dado.tirarDado('d20')">Tirar dado d20</button>
-            <p id="resultado"></p>
-        </section>
+            <h2>Dados:</h2>
+            <button onclick="dado.tirarDado(2)">d2</button>
+            <button onclick="dado.tirarDado(4)">d4</button>
+            <button onclick="dado.tirarDado(6)">d6</button>
+            <button onclick="dado.tirarDado(8)">d8</button>
+            <button onclick="dado.tirarDado(10)">d10</button>
+            <button onclick="dado.tirarDado(12)">d12</button>
+            <button onclick="dado.tirarDado(20)">d20</button>
+            <button onclick="dado.tirarDado(100)">d100</button>
 
-        <section id="drop-area">
-            <h2>Tablero</h2>
-            <form>
-                <p>Selecione imagen para añadir: </p>
-                <input type="file" onchange="cargador.leerArchivo(this.files);" accept="image/*" />
-            </form>
-            <canvas id="canvas"></canvas>
+            <p id="resultadoDados"></p>
         </section>
-
     </main>
-
-    <footer>
-        <a href="https://validator.w3.org/check?uri=referer">
-            <img src="https://www.w3.org/html/logo/badge/html5-badge-h-solo.png" alt="HTML5 Válido" title="HTML5 Válido"
-                height="64" width="63" />
-        </a>
-
-
-        <a href="http://jigsaw.w3.org/css-validator/check/referer">
-            <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss"
-                alt="¡CSS Válido!" />
-        </a>
-
-        <!-- Script al final para evitar errores -->
-        <script src="js/tablero.js"></script>
-    </footer>
-
 
 </body>

@@ -21,7 +21,8 @@ class Generador {
     var descripcion = campos.descripcion;
     var transfondo = campos.transfondo;
     var alinemiento = campos.alinemiento;
-    var imagen = campos.imagen;
+
+    var imagen = "null";
 
     var vida = campos.vida;
     var movimiento = campos.movimiento;
@@ -126,9 +127,6 @@ class Generador {
       '<section id="creacionObjeto">' +
         '<p>Nombre</p><p><input type="text" name="nombreObj"></p>' +
         '<p>Descripcion</p><p><input type="text" name="descripcionObj"></p>' +
-        '<p><input type="button" onclick="generador.añadirRefObj()" value="Añadir referencia" id="refObj"></p>' +
-        '<p><input type="button" onclick="generador.añadirImgObj()" value="Añadir imagen" id="imgObj"></p>' +
-        '<p><input type="button" onclick="generador.añadirVidObj()" value="Añadir video" id="vidObj"></p>' +
         '<p><input type="button" onclick="generador.crearObjeto()" value="Crear objeto"></p>' +
       '</section>'
     );
@@ -237,9 +235,6 @@ class Generador {
         '<p>Nombre</p><p><input type="text" name="nomMag"></p>' +
         '<p>Descripcion</p><p><input type="text" name="desMag"></p>' +
         '<p>Componentes</p><p><input type="text" name="comMag"></p>' +
-        '<p><input type="button" onclick="generador.añadirRefMag()" value="Añadir referencia" id="refObj"></p>' +
-        '<p><input type="button" onclick="generador.añadirImgMag()" value="Añadir imagen" id="imgObj"></p>' +
-        '<p><input type="button" onclick="generador.añadirVidMag()" value="Añadir video" id="vidObj"></p>' +
         '<p><input type="button" onclick="generador.crearMagia('+niv+')" value="Crear Magia"></p>' +
       '</section>'
     );

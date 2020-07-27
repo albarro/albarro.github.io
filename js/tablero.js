@@ -174,56 +174,7 @@ canvas.onresize = function (e) {
   dibujo.reOffset();
 };
 
-class Dado {
-  constructor() {
-    this.url = "http://roll.diceapi.com/json/";
-    this.error =
-      "<h2>Error(No puedo obtener información de <a href='http://roll.diceapi.com/'>diceApi</a>)</h2>";
-  }
-  tirarDado(dado) {
-    var elem = this;
-    $.ajax({
-      dataType: "json",
-      url: this.url + dado,
-      async: true,
-      crossDomain: true,
-      method: "GET",
-      headers: {
-        "cache-control": "no-cache"
-      },
-      success: function (datos) {
-        elem.cargarDatos(datos.datos);
-      },
-      error: function () {
-        $("#resultado").html(this.error);
-      },
-    });
-  }
-  cargarDatos(link) {
-    var elem = this;
-    $.ajax({
-      dataType: "json",
-      url: link,
-      method: "GET",
-      success: function (datos) {
-        elem.json = JSON.stringify(datos, null, 2);
 
-        var resultado =
-          "<p>Valor: " + datos.dice.value + " Dado: " + datos.dice.type + "</p>";
-
-        elem.string = resultado;
-        elem.verJSON();
-      },
-      error: function () {},
-    });
-  }
-  verJSON() {
-    //Muestra el archivo JSON recibido
-    $("#resultado").html(this.string);
-  }
-}
-
-var dado = new Dado();
 
 var dibujo = new Dibujo();
 var cargador = new Cargador();

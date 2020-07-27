@@ -8,7 +8,6 @@
         <descripcion>Prueba no es mas que un personaje de prueba, un monton de texto sin mas objetivo que probar programas</descripcion>
         <transfondo>Fichero xml vacio</transfondo>
         <alinemiento>Neutral Neutral</alinemiento>
-        <imagen>Prueba.png</imagen>
 
         <vida>500</vida>
         <movimiento>50</movimiento>
@@ -44,9 +43,6 @@
                     Arma capaz de destruir la mente de cualquier enemigo
                     Daño:2d100
                 </descripcion>
-                <imagenes>
-                    <imagen>NullPointer.png</imagen>
-                </imagenes>
             </objeto>
             <objeto nombre="Stack">
                 <descripcion>
@@ -65,22 +61,10 @@
                 <magia nombre="Prueba">
                     <descripcion>Magia probatoria</descripcion>
                     <componentes>Debuger</componentes>
-                    <referencia>www.test.test</referencia>
                 </magia>
             </nivelMagia>
         </magias>
 
-        <referencias>
-            <referencia>Prueba</referencia>
-            <referencia>stackoverflow.com</referencia>
-            <referencia>null</referencia>
-            <referencia>imaginacion</referencia>
-            <referencia>errores</referencia>
-            <referencia>fallos</referencia>
-            <referencia>test</referencia>
-            <referencia>cosas</referencia>
-        </referencias>
-        <autor>Desarrollador</autor>
     </personaje>
 
     <personaje nombre="Antor">
@@ -89,7 +73,6 @@
         <descripcion>Prueba no es mas que un personaje de prueba, un monton de texto sin mas objetivo que probar programas</descripcion>
         <transfondo>Artesano Gremial</transfondo>
         <alinemiento>Neutral Bueno</alinemiento>
-        <imagen>antor.jpg</imagen>
 
         <vida>10</vida>
         <movimiento>25</movimiento>
@@ -181,7 +164,6 @@
         <descripcion>Personaje de prueba para el tutorial</descripcion>
         <transfondo>Prueba</transfondo>
         <alinemiento>Neutral Neutral</alinemiento>
-        <imagen>https://economipedia.com/wp-content/uploads/test-de-estr%C3%A9s.png</imagen>
         <vida>10</vida>
         <movimiento>10</movimiento>
         <nivel>1</nivel>
@@ -219,7 +201,6 @@
                 <magia nombre="Prueba">
                     <descripcion>Magia probatoria</descripcion>
                     <componentes>Debuger</componentes>
-                    <referencia>www.test.test</referencia>
                 </magia>
             </nivelMagia>
         </magias>
@@ -230,7 +211,6 @@
         <descripcion>El vijo y veterano kursk lucho en las guerras de peñasa y ha vuelto para patear a todabia mas gente</descripcion>
         <transfondo>Héroe del pueblo</transfondo>
         <alinemiento>Caotico Neutral</alinemiento>
-        <imagen>Kursk.jpg</imagen>
         <vida>120</vida>
         <movimiento>40</movimiento>
         <nivel>20</nivel>
@@ -258,7 +238,6 @@
         <inventario>
             <objeto nombre="La puerta">
                 <descripcion>La legendaria puerta de las antiguas leyendas. Daño: 2d12 Contundente</descripcion>
-                <video>https://www.youtube.com/watch?v=wZTUXoL5byo</video>
             </objeto>
             <objeto nombre="Armadura Cuero tachonado">
                 <descripcion>CA 12 + Des</descripcion>
@@ -268,6 +247,53 @@
             <atributo>Inteligencia</atributo>
             <salvacion>2</salvacion>
             <bonificador>2</bonificador>
+        </magias>
+    </personaje>
+
+    <personaje nombre="pipo">
+        <raza>popo</raza>
+        <descripcion>des</descripcion>
+        <transfondo>mopo</transfondo>
+        <alinemiento>mip</alinemiento>
+        <vida>50</vida>
+        <movimiento>1</movimiento>
+        <nivel>2</nivel>
+        <clase>Don</clase>
+        <experiencia>0</experiencia>
+        <atributos>
+            <fuerza>1</fuerza>
+            <destreza>1</destreza>
+            <constitucion>1</constitucion>
+            <inteligencia>1</inteligencia>
+            <sabiduria>1</sabiduria>
+            <carisma>1</carisma>
+        </atributos>
+        <competencias>
+            <bonificador>3</bonificador>
+            <salvaciones>
+                <atributo>Destreza</atributo>
+                <atributo>Constitucion</atributo>
+            </salvaciones>
+            <idiomas>
+                <idioma>Meponio</idioma>
+            </idiomas>
+        </competencias>
+        <inventario>
+            <objeto nombre="asd">
+                <descripcion>dsds</descripcion>
+            </objeto>
+        </inventario>
+        <magias>
+            <atributo>Maponio</atributo>
+            <salvacion>21</salvacion>
+            <bonificador>21</bonificador>
+            <nivelMagia n="1">
+                <usos>1</usos>
+                <magia nombre="holiwi">
+                    <descripcion>dsa</descripcion>
+                    <componentes>sdddd</componentes>
+                </magia>
+            </nivelMagia>
         </magias>
     </personaje>
 </personajes>

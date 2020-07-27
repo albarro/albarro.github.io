@@ -6,18 +6,18 @@ class Lector {
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            elem.leerXml(this)
-            elem.cargarSection();
-        } else {
-          elem.ocultarTexto();
-          $("#error").show();
+      if (this.readyState == 4 && this.status == 200) {
+        elem.leerXml(this);
+        elem.cargarSection();
+      } else {
+        elem.ocultarTexto();
+        $("#error").show();
       }
     };
 
     xhttp.open("GET", "https://albarro.github.io/Biblioteca.xml", true);
     xhttp.send();
-}
+  }
 
   ocultarTexto() {
     $("#error").hide();
@@ -28,112 +28,143 @@ class Lector {
     this.ocultarTexto();
     $("section").show();
 
-    $("#areaTexto").text(this.areaVisualizacion);
+    $("#areaTexto").html(this.areaVisualizacion);
   }
 
   leerXml(xml) {
-
     var xmldoc = xml.responseXML;
 
-
-    var personajes = xmldoc.getElementsByTagName('personaje');
+    var personajes = xmldoc.getElementsByTagName("personaje");
+    this.perjs = [];
 
     var texto = "Personajes: \n";
 
     for (let i = 0; i < personajes.length; i++) {
-
       var personaje = personajes.item(i);
 
-      var nombre = personaje.getAttribute('nombre');
-      var raza = personaje.getElementsByTagName('raza').item(0).firstChild.data;
-      var descripcion = personaje.getElementsByTagName('descripcion').item(0).firstChild.data;
-      var transfondo = personaje.getElementsByTagName('transfondo').item(0).firstChild.data;
-      var alinemiento =personaje.getElementsByTagName('alinemiento').item(0).firstChild.data;
+      var nombre = personaje.getAttribute("nombre");
+      var raza = personaje.getElementsByTagName("raza").item(0).firstChild.data;
+      var descripcion = personaje.getElementsByTagName("descripcion").item(0)
+        .firstChild.data;
+      var transfondo = personaje.getElementsByTagName("transfondo").item(0)
+        .firstChild.data;
+      var alinemiento = personaje.getElementsByTagName("alinemiento").item(0)
+        .firstChild.data;
 
-      var imagen = personaje.getElementsByTagName('imagen').item(0).firstChild.data;
+      var imagen = personaje.getElementsByTagName("imagen").item(0).firstChild
+        .data;
 
-      var vida = personaje.getElementsByTagName('vida').item(0).firstChild.data;
-      var movimiento = personaje.getElementsByTagName('movimiento').item(0).firstChild.data;
+      var vida = personaje.getElementsByTagName("vida").item(0).firstChild.data;
+      var movimiento = personaje.getElementsByTagName("movimiento").item(0)
+        .firstChild.data;
 
-      var nivel = personaje.getElementsByTagName('nivel').item(0).firstChild.data;
-      var clase = personaje.getElementsByTagName('clase').item(0).firstChild.data;
-      var experiencia = personaje.getElementsByTagName('experiencia').item(0).firstChild.data;
-      var movimiento = personaje.getElementsByTagName('movimiento').item(0).firstChild.data;
+      var nivel = personaje.getElementsByTagName("nivel").item(0).firstChild
+        .data;
+      var clase = personaje.getElementsByTagName("clase").item(0).firstChild
+        .data;
+      var experiencia = personaje.getElementsByTagName("experiencia").item(0)
+        .firstChild.data;
+      var movimiento = personaje.getElementsByTagName("movimiento").item(0)
+        .firstChild.data;
 
+      var atributos = personaje.getElementsByTagName("atributos").item(0);
 
-      var atributos = personaje.getElementsByTagName('atributos').item(0);
+      var fuerza = atributos.getElementsByTagName("fuerza").item(0).firstChild
+        .data;
+      var destreza = atributos.getElementsByTagName("destreza").item(0)
+        .firstChild.data;
+      var constitucion = atributos.getElementsByTagName("constitucion").item(0)
+        .firstChild.data;
+      var inteligencia = atributos.getElementsByTagName("inteligencia").item(0)
+        .firstChild.data;
+      var sabiduria = atributos.getElementsByTagName("sabiduria").item(0)
+        .firstChild.data;
+      var carisma = atributos.getElementsByTagName("carisma").item(0).firstChild
+        .data;
 
-      var fuerza = atributos.getElementsByTagName('fuerza').item(0).firstChild.data;
-      var destreza = atributos.getElementsByTagName('destreza').item(0).firstChild.data;
-      var constitucion = atributos.getElementsByTagName('constitucion').item(0).firstChild.data;
-      var inteligencia = atributos.getElementsByTagName('inteligencia').item(0).firstChild.data;
-      var sabiduria = atributos.getElementsByTagName('sabiduria').item(0).firstChild.data;
-      var carisma = atributos.getElementsByTagName('carisma').item(0).firstChild.data;
+      atributos = new Atributos(
+        fuerza,
+        destreza,
+        constitucion,
+        inteligencia,
+        sabiduria,
+        carisma
+      );
 
-      atributos = new Atributos(fuerza,destreza,constitucion,inteligencia,sabiduria,
-        carisma)
+      var competencias = personaje.getElementsByTagName("competencias").item(0);
 
-
-      var competencias = personaje.getElementsByTagName('competencias').item(0);
-
-      var bonificador = competencias.getElementsByTagName('bonificador').item(0).firstChild.data;
-      var atris = competencias.getElementsByTagName('salvaciones').item(0).getElementsByTagName('atributo');
+      var bonificador = competencias.getElementsByTagName("bonificador").item(0)
+        .firstChild.data;
+      var atris = competencias
+        .getElementsByTagName("salvaciones")
+        .item(0)
+        .getElementsByTagName("atributo");
       var salvaciones = [];
       for (let i = 0; i < atris.length; i++) {
         salvaciones.push(atris.item(i).firstChild.data);
       }
-      var ids = competencias.getElementsByTagName('idiomas').item(0).getElementsByTagName('idioma');
+      var ids = competencias
+        .getElementsByTagName("idiomas")
+        .item(0)
+        .getElementsByTagName("idioma");
       var idiomas = [];
       for (let i = 0; i < ids.length; i++) {
         idiomas.push(ids.item(i).firstChild.data);
       }
 
-      competencias = new Competencias(bonificador,salvaciones,idiomas);
+      competencias = new Competencias(bonificador, salvaciones, idiomas);
 
-      var inventario = personaje.getElementsByTagName('inventario').item(0);
-      var objs = inventario.getElementsByTagName('objeto');
+      var inventario = personaje.getElementsByTagName("inventario").item(0);
+      var objs = inventario.getElementsByTagName("objeto");
 
       var objetos = [];
       for (let i = 0; i < objs.length; i++) {
-        var nom = objs[i].getAttribute('nombre');
-        var des = objs[i].getElementsByTagName('descripcion').item(0).firstChild.data;
-        objetos.push(new Objeto(nom, des, null, null,null));
+        var nom = objs[i].getAttribute("nombre");
+        var des = objs[i].getElementsByTagName("descripcion").item(0).firstChild
+          .data;
+        objetos.push(new Objeto(nom, des, null, null, null));
       }
 
       inventario = new Inventario(objetos);
 
-      var magias = personaje.getElementsByTagName('magias').item(0);
+      var magias = personaje.getElementsByTagName("magias").item(0);
 
-      var atri = magias.getElementsByTagName('atributo').item(0).firstChild.data;
-      var sal = magias.getElementsByTagName('salvacion').item(0).firstChild.data;
-      var bon = magias.getElementsByTagName('bonificador').item(0).firstChild.data;
+      var atri = magias.getElementsByTagName("atributo").item(0).firstChild
+        .data;
+      var sal = magias.getElementsByTagName("salvacion").item(0).firstChild
+        .data;
+      var bon = magias.getElementsByTagName("bonificador").item(0).firstChild
+        .data;
 
-      var nivs = magias.getElementsByTagName('nivelMagia');
-      var niveles =[];
+      var nivs = magias.getElementsByTagName("nivelMagia");
+      var niveles = [];
       for (let i = 0; i < nivs.length; i++) {
-        var niv = nivs.item(i).getAttribute('n')
-        var usos = nivs.item(i).getElementsByTagName('usos').item(0).firstChild.data;
+        var niv = nivs.item(i).getAttribute("n");
+        var usos = nivs.item(i).getElementsByTagName("usos").item(0).firstChild
+          .data;
 
-        var ms = nivs.item(i).getElementsByTagName('magia');
-        var mags =[];
+        var ms = nivs.item(i).getElementsByTagName("magia");
+        var mags = [];
         for (let i = 0; i < ms.length; i++) {
-          var nom = ms.item(i).getAttribute('nombre');
-          var des = ms.item(i).getElementsByTagName('descripcion').item(0).firstChild.data;
-          var comp = ms.item(i).getElementsByTagName('componentes').item(0).firstChild.data;
+          var nom = ms.item(i).getAttribute("nombre");
+          var des = ms.item(i).getElementsByTagName("descripcion").item(0)
+            .firstChild.data;
+          var comp = ms.item(i).getElementsByTagName("componentes").item(0)
+            .firstChild.data;
 
-          mags.push(new Magia(nom,des,comp,null,null,null))
+          mags.push(new Magia(nom, des, comp, null, null, null));
         }
-        
 
-        niveles.push(new NivelMagia(niv,usos,mags));
+        niveles.push(new NivelMagia(niv, usos, mags));
       }
-    
 
-      magias = new Magias(atri,sal,bon,niveles)
-
+      magias = new Magias(atri, sal, bon, niveles);
 
       try {
-        var refs = personaje.getElementsByTagName('referencias').item(0).getElementsByTagName('referencia');
+        var refs = personaje
+          .getElementsByTagName("referencias")
+          .item(0)
+          .getElementsByTagName("referencia");
         var referencias = [];
         for (let i = 0; i < refs.length; i++) {
           referencias.push(refs.item(i).firstChild.data);
@@ -141,22 +172,54 @@ class Lector {
       } catch (error) {
         var referencias = null;
       }
-      
+
       try {
-        var autor = personaje.getElementsByTagName('autor').item(0).firstChild.data;
+        var autor = personaje.getElementsByTagName("autor").item(0).firstChild
+          .data;
       } catch (error) {
         var autor = null;
       }
-      
-      
-      var per = new Personaje(nombre,raza,descripcion,transfondo,
-        alinemiento,imagen,vida,movimiento,nivel,clase,experiencia,atributos,competencias,
-        inventario,magias,referencias,autor);
 
-      texto += per.texto();
+      var per = new Personaje(
+        nombre,
+        raza,
+        descripcion,
+        transfondo,
+        alinemiento,
+        imagen,
+        vida,
+        movimiento,
+        nivel,
+        clase,
+        experiencia,
+        atributos,
+        competencias,
+        inventario,
+        magias,
+        referencias,
+        autor
+      );
+
+      this.perjs.push(per);
     }
-    this.areaVisualizacion = texto
-    
+    this.areaVisualizacion = "Personajes: ";
+    this.perjs.forEach((personaje) => {
+      this.areaVisualizacion +=
+        '<button onclick="lector.mostrarPersonaje(\'' +
+        personaje.nombre +
+        '\')">' +
+        personaje.nombre +
+        "</button>";
+    });
+  }
+
+  mostrarPersonaje(nombre) {
+    this.perjs.forEach((personaje) => {
+      if (personaje.nombre == nombre) {
+        var per = "<br>" + personaje.texto() + "</br>";
+        $("#areaTexto").html(this.areaVisualizacion + per);
+      }
+    });
   }
 }
 
