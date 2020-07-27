@@ -2,8 +2,8 @@ class Lector {
   constructor() {}
 
   cargarDatos() {
-    var elem = this;
-    var xhttp = new XMLHttpRequest();
+    let elem = this;
+    let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
@@ -32,51 +32,49 @@ class Lector {
   }
 
   leerXml(xml) {
-    var xmldoc = xml.responseXML;
+    let xmldoc = xml.responseXML;
 
-    var personajes = xmldoc.getElementsByTagName("personaje");
+    let personajes = xmldoc.getElementsByTagName("personaje");
     this.perjs = [];
 
-    var texto = "Personajes: \n";
-
     for (let i = 0; i < personajes.length; i++) {
-      var personaje = personajes.item(i);
+      let personaje = personajes.item(i);
 
-      var nombre = personaje.getAttribute("nombre");
-      var raza = personaje.getElementsByTagName("raza").item(0).firstChild.data;
-      var descripcion = personaje.getElementsByTagName("descripcion").item(0)
+      let nombre = personaje.getAttribute("nombre");
+      let raza = personaje.getElementsByTagName("raza").item(0).firstChild.data;
+      let descripcion = personaje.getElementsByTagName("descripcion").item(0)
         .firstChild.data;
-      var transfondo = personaje.getElementsByTagName("transfondo").item(0)
+      let transfondo = personaje.getElementsByTagName("transfondo").item(0)
         .firstChild.data;
-      var alinemiento = personaje.getElementsByTagName("alinemiento").item(0)
-        .firstChild.data;
-
-      var vida = personaje.getElementsByTagName("vida").item(0).firstChild.data;
-      var movimiento = personaje.getElementsByTagName("movimiento").item(0)
+      let alinemiento = personaje.getElementsByTagName("alinemiento").item(0)
         .firstChild.data;
 
-      var nivel = personaje.getElementsByTagName("nivel").item(0).firstChild
+      let vida = personaje.getElementsByTagName("vida").item(0).firstChild.data;
+      let movimiento = personaje.getElementsByTagName("movimiento").item(0)
+        .firstChild.data;
+
+      let nivel = personaje.getElementsByTagName("nivel").item(0).firstChild
         .data;
-      var clase = personaje.getElementsByTagName("clase").item(0).firstChild
+      let clase = personaje.getElementsByTagName("clase").item(0).firstChild
         .data;
-      var experiencia = personaje.getElementsByTagName("experiencia").item(0)
+      let experiencia = personaje.getElementsByTagName("experiencia").item(0)
         .firstChild.data;
-      var movimiento = personaje.getElementsByTagName("movimiento").item(0)
+      let movimiento = personaje.getElementsByTagName("movimiento").item(0)
         .firstChild.data;
 
-      var atributos = personaje.getElementsByTagName("atributos").item(0);
+      let atributos = personaje.getElementsByTagName("atributos").item(0);
 
-      var fuerza = atributos.getElementsByTagName("fuerza").item(0).firstChild
+      let fuerza = atributos.getElementsByTagName("fuerza").item(0).firstChild
         .data;
-      var destreza = atributos.getElementsByTagName("destreza").item(0)
+      let destreza = atributos.getElementsByTagName("destreza").item(0)
         .firstChild.data;
-      var constitucion = atributos.getElementsByTagName("constitucion").item(0)
+      let constitucion = atributos.getElementsByTagName("constitucion").item(0)
         .firstChild.data;
-      var inteligencia = atributos.getElementsByTagName("inteligencia").item(0)
+      let inteligencia = atributos.getElementsByTagName("inteligencia").item(0)
         .firstChild.data;
-      var sabiduria = atributos.getElementsByTagName("sabiduria").item(0)
+      let sabiduria = atributos.getElementsByTagName("sabiduria").item(0)
         .firstChild.data;
-      var carisma = atributos.getElementsByTagName("carisma").item(0).firstChild
+      let carisma = atributos.getElementsByTagName("carisma").item(0).firstChild
         .data;
 
       atributos = new Atributos(
@@ -88,65 +86,65 @@ class Lector {
         carisma
       );
 
-      var competencias = personaje.getElementsByTagName("competencias").item(0);
+      let competencias = personaje.getElementsByTagName("competencias").item(0);
 
-      var bonificador = competencias.getElementsByTagName("bonificador").item(0)
+      let bonificador = competencias.getElementsByTagName("bonificador").item(0)
         .firstChild.data;
-      var atris = competencias
+      let atris = competencias
         .getElementsByTagName("salvaciones")
         .item(0)
         .getElementsByTagName("atributo");
-      var salvaciones = [];
+      let salvaciones = [];
       for (let i = 0; i < atris.length; i++) {
         salvaciones.push(atris.item(i).firstChild.data);
       }
-      var ids = competencias
+      let ids = competencias
         .getElementsByTagName("idiomas")
         .item(0)
         .getElementsByTagName("idioma");
-      var idiomas = [];
+      let idiomas = [];
       for (let i = 0; i < ids.length; i++) {
         idiomas.push(ids.item(i).firstChild.data);
       }
 
       competencias = new Competencias(bonificador, salvaciones, idiomas);
 
-      var inventario = personaje.getElementsByTagName("inventario").item(0);
-      var objs = inventario.getElementsByTagName("objeto");
+      let inventario = personaje.getElementsByTagName("inventario").item(0);
+      let objs = inventario.getElementsByTagName("objeto");
 
-      var objetos = [];
+      let objetos = [];
       for (let i = 0; i < objs.length; i++) {
-        var nom = objs[i].getAttribute("nombre");
-        var des = objs[i].getElementsByTagName("descripcion").item(0).firstChild
+        let nom = objs[i].getAttribute("nombre");
+        let des = objs[i].getElementsByTagName("descripcion").item(0).firstChild
           .data;
         objetos.push(new Objeto(nom, des, null, null, null));
       }
 
       inventario = new Inventario(objetos);
 
-      var magias = personaje.getElementsByTagName("magias").item(0);
+      let magias = personaje.getElementsByTagName("magias").item(0);
 
-      var atri = magias.getElementsByTagName("atributo").item(0).firstChild
+      let atri = magias.getElementsByTagName("atributo").item(0).firstChild
         .data;
-      var sal = magias.getElementsByTagName("salvacion").item(0).firstChild
+      let sal = magias.getElementsByTagName("salvacion").item(0).firstChild
         .data;
-      var bon = magias.getElementsByTagName("bonificador").item(0).firstChild
+      let bon = magias.getElementsByTagName("bonificador").item(0).firstChild
         .data;
 
-      var nivs = magias.getElementsByTagName("nivelMagia");
-      var niveles = [];
+      let nivs = magias.getElementsByTagName("nivelMagia");
+      let niveles = [];
       for (let i = 0; i < nivs.length; i++) {
-        var niv = nivs.item(i).getAttribute("n");
-        var usos = nivs.item(i).getElementsByTagName("usos").item(0).firstChild
+        let niv = nivs.item(i).getAttribute("n");
+        let usos = nivs.item(i).getElementsByTagName("usos").item(0).firstChild
           .data;
 
-        var ms = nivs.item(i).getElementsByTagName("magia");
-        var mags = [];
+        let ms = nivs.item(i).getElementsByTagName("magia");
+        let mags = [];
         for (let i = 0; i < ms.length; i++) {
-          var nom = ms.item(i).getAttribute("nombre");
-          var des = ms.item(i).getElementsByTagName("descripcion").item(0)
+          let nom = ms.item(i).getAttribute("nombre");
+          let des = ms.item(i).getElementsByTagName("descripcion").item(0)
             .firstChild.data;
-          var comp = ms.item(i).getElementsByTagName("componentes").item(0)
+          let comp = ms.item(i).getElementsByTagName("componentes").item(0)
             .firstChild.data;
 
           mags.push(new Magia(nom, des, comp, null, null, null));
@@ -158,32 +156,32 @@ class Lector {
       magias = new Magias(atri, sal, bon, niveles);
 
       try {
-        var refs = personaje
+        let refs = personaje
           .getElementsByTagName("referencias")
           .item(0)
           .getElementsByTagName("referencia");
-        var referencias = [];
+        let referencias = [];
         for (let i = 0; i < refs.length; i++) {
           referencias.push(refs.item(i).firstChild.data);
         }
       } catch (error) {
-        var referencias = null;
+        let referencias = null;
       }
 
       try {
-        var autor = personaje.getElementsByTagName("autor").item(0).firstChild
+        let autor = personaje.getElementsByTagName("autor").item(0).firstChild
           .data;
       } catch (error) {
-        var autor = null;
+        let autor = null;
       }
 
-      var per = new Personaje(
+      let per = new Personaje(
         nombre,
         raza,
         descripcion,
         transfondo,
         alinemiento,
-        imagen,
+        null,
         vida,
         movimiento,
         nivel,
@@ -213,11 +211,11 @@ class Lector {
   mostrarPersonaje(nombre) {
     this.perjs.forEach((personaje) => {
       if (personaje.nombre == nombre) {
-        var per = "<br>" + personaje.texto() + "</br>";
+        let per = "<br>" + personaje.texto() + "</br>";
         $("#areaTexto").html(this.areaVisualizacion + per);
       }
     });
   }
 }
 
-var lector = new Lector();
+let lector = new Lector();
