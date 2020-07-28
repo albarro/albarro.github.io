@@ -296,4 +296,43 @@
             </nivelMagia>
         </magias>
     </personaje>
+
+    <personaje nombre="Darky Boi">
+        <raza>L00ZR</raza>
+        <descripcion>Es muy darks</descripcion>
+        <transfondo>Pipa de Kurtus Cobainus</transfondo>
+        <alinemiento>Torcido</alinemiento>
+        <vida>69</vida>
+        <movimiento>420</movimiento>
+        <nivel>5</nivel>
+        <clase>Mucha</clase>
+        <experiencia>69420</experiencia>
+        <atributos>
+            <fuerza>12</fuerza>
+            <destreza>15</destreza>
+            <constitucion>14</constitucion>
+            <inteligencia>12</inteligencia>
+            <sabiduria>12</sabiduria>
+            <carisma>18</carisma>
+        </atributos>
+        <competencias>
+            <bonificador>3</bonificador>
+            <salvaciones>
+                <atributo>Destreza</atributo>
+                <atributo>Sabiduria</atributo>
+                <atributo>Carisma</atributo>
+            </salvaciones>
+            <idiomas>
+                <idioma>Oscuridad</idioma>
+                <idioma>Nu metal</idioma>
+                <idioma>Sollozos</idioma>
+            </idiomas>
+        </competencias>
+        <inventario></inventario>
+        <magias>
+            <atributo>Fornite</atributo>
+            <salvacion>15</salvacion>
+            <bonificador>15</bonificador>
+        </magias>
+    </personaje>
 </personajes>
