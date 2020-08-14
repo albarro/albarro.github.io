@@ -2,16 +2,16 @@ class Cargador {
   constructor() {}
 
   leerArchivo(files) {
-    var archivo = files[0];
-    var canvas = document.getElementById("canvas");
+    let archivo = files[0];
+    let canvas = document.getElementById("canvas");
     console.log("Leo archivo " + archivo.name);
 
-    var tipoImagen = "image/*";
+    let tipoImagen = "image/*";
     if (FileReader && files && files.length && archivo.type.match(tipoImagen)) {
-      var fr = new FileReader();
+      let fr = new FileReader();
       canvas = canvas.getContext("2d");
 
-      var img1 = new Image();
+      let img1 = new Image();
 
       fr.onload = function () {
         img1.src = fr.result;
@@ -43,7 +43,7 @@ class Dibujo {
   }
 
   reOffset() {
-    var BB = this.canvas.getBoundingClientRect();
+    let BB = this.canvas.getBoundingClientRect();
     this.offsetX = BB.left;
     this.offsetY = BB.top;
   }
@@ -61,18 +61,18 @@ class Dibujo {
 
   drawAll() {
     this.ctx.clearRect(0, 0, this.cw, this.ch);
-    for (var i = 0; i < this.imagenes.length; i++) {
-      var img = this.imagenes[i];
+    for (let i = 0; i < this.imagenes.length; i++) {
+      let img = this.imagenes[i];
       this.ctx.drawImage(img.imagen, img.x, img.y);
     }
   }
 
   sobreImagen(mx, my, img) {
     if (img.imagen) {
-      var ix = img.x;
-      var iw = img.x + img.width;
-      var iy = img.y;
-      var ih = img.y + img.height;
+      let ix = img.x;
+      let iw = img.x + img.width;
+      let iy = img.y;
+      let ih = img.y + img.height;
       if (mx > ix && mx < iw && my > iy && my < ih) {
         return true;
       }
@@ -96,7 +96,7 @@ class Dibujo {
     this.startX = parseInt(e.clientX - this.offsetX);
     this.startY = parseInt(e.clientY - this.offsetY);
 
-    for (var i = 0; i < this.imagenes.length; i++) {
+    for (let i = 0; i < this.imagenes.length; i++) {
       if (this.sobreImagen(this.startX, this.startY, this.imagenes[i])) {
         this.indexImagen = i;
         this.arrastrar();
@@ -106,12 +106,12 @@ class Dibujo {
   }
 
   mover(e) {
-    var mouseX = parseInt(e.clientX - this.offsetX);
-    var mouseY = parseInt(e.clientY - this.offsetY);
-    var dx = mouseX - this.startX;
-    var dy = mouseY - this.startY;
+    let mouseX = parseInt(e.clientX - this.offsetX);
+    let mouseY = parseInt(e.clientY - this.offsetY);
+    let dx = mouseX - this.startX;
+    let dy = mouseY - this.startY;
 
-    var imagen = this.imagenes[this.indexImagen];
+    let imagen = this.imagenes[this.indexImagen];
     imagen.x += dx;
     imagen.y += dy;
 
@@ -125,7 +125,7 @@ class Dibujo {
 class GestorEventos {
   constructor(dibujo) {
     this.dibujo = dibujo;
-    var canvas = dibujo.canvas;
+    let canvas = dibujo.canvas;
 
     //Gestionamos los eventos del canvas
     canvas.onmousedown = this.handleMouseDown.bind(this);
@@ -176,6 +176,6 @@ canvas.onresize = function (e) {
 
 
 
-var dibujo = new Dibujo();
-var cargador = new Cargador();
-var gestor = new GestorEventos(dibujo, cargador);
+let dibujo = new Dibujo();
+let cargador = new Cargador();
+let gestor = new GestorEventos(dibujo, cargador);

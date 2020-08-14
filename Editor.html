@@ -3,167 +3,316 @@
 
 <head>
     <!-- Datos que describen el documento -->
-    <meta charset="UTF-8" />
-    <meta name="author" content="UO251322" />
-    <meta name="description" content="Documento de creación de personajes" />
-    <meta name="keywords" content="Editor, personajes, xml, atributos" />
+    <meta charset="UTF-8"/>
+    <meta name="author" content="UO251322"/>
+    <meta name="description" content="Editor de fichas"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Editor</title>
-    <base href="index.html" />
-    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
-    <link rel="stylesheet" type="text/css" href="css/grid-2nav.css" />
-    <link rel="stylesheet" type="text/css" href="css/editor.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/Personaje.js"></script>
-    <script src="js/CreadorXml.js"></script>
+    <base href="index.html"/>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+    <link rel="stylesheet" type="text/css" href="css/grid-2nav.css"/>
+    <link rel="stylesheet" type="text/css" href="css/editor.css"/>
+    <link rel="stylesheet" type="text/css" href="css/ficha.css"/>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="js/Personaje.js" defer></script>
+    <script src="js/CreadorXml.js" defer></script>
+
 </head>
 
 
-
 <body>
-    <!-- Datos con el contenidos que aparece en el navegador -->
-    <header>
-        <h1>D &#38; D</h1>
+<!-- Datos con el contenidos que aparece en el navegador -->
+<header>
+    <h1>D &#38; D</h1>
 
-        <nav>
-            <ul>
-                <li>
-                    <a title="Enlace a la pagina inicial" tabindex="1" accesskey="I" href="index.html">Inicio</a>
-                </li>
-                <li>
-                    <a title="Enlace al tutorial" tabindex="2" accesskey="T" href="Tutorial.html">Tutorial</a>
-                </li>
-                <li>
-                    <a title="Enlace a la biblioteca de personajes" tabindex="3" accesskey="B"
-                        href="Biblioteca.xml">Biblioteca</a>
-                </li>
-                <li>
-                    <a title="Enlace al tablero" tabindex="4" accesskey="E" href="Tablero.html">Tablero</a>
-                </li>
-            </ul>
-        </nav>
-        <nav>
-            <ul>
-                <li>
-                    <a title="Enlace al editor" tabindex="5" accesskey="d" href="Editor.html">Editor</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <ul>
+            <li>
+                <a title="Enlace a la pagina inicial" tabindex="1" accesskey="I" href="index.html">Inicio</a>
+            </li>
+            <li>
+                <a title="Enlace al tutorial" tabindex="2" accesskey="T" href="Tutorial.html">Tutorial</a>
+            </li>
+            <li>
+                <a title="Enlace a la biblioteca de personajes" tabindex="3" accesskey="B"
+                   href="Biblioteca.xml">Biblioteca</a>
+            </li>
+            <li>
+                <a title="Enlace al tablero" tabindex="4" accesskey="E" href="Tablero.html">Tablero</a>
+            </li>
+        </ul>
+    </nav>
+    <nav>
+        <ul>
+            <li>
+                <a title="Enlace al editor" tabindex="5" accesskey="d" href="Editor.html">Editor</a>
+            </li>
+        </ul>
+    </nav>
 
-    <main>
-        <section>
-            <h2>Creador de personajes</h2>
-            <form name="formulario" onSubmit="generador.validar();">
-                <section>
-                    <h2>Información general</h2>
+</header>
 
-                    <p><label for="nombre">Nombre</label></p>
+<main>
+    <section>
+        <h2>Creador de personajes</h2>
+        <form name="formulario" method="post" onSubmit="generador.validar();">
+            <section id="basico">
+
+                <div>
                     <input type="text" name="nombre" id="nombre" required>
-
-                    <p><label for="raza">Raza</label></p>
-                    <input type="text" name="raza" id="raza" required>
-
-                    <p><label for="descripcion">Descripción</label></p>
-                    <input type="text" name="descripcion" id="descripcion" required>
-
-                    <p><label for="transfondo">Trasfondo</label></p>
-                    <input type="text" name="transfondo" id="transfondo" required>
-
-                    <p><label for="alinemiento">Alineamiento</label></p>
-                    <input type="text" name="alinemiento" id="alinemiento" required>
-
-                    <p><label for="vida">Vida</label></p>
-                    <input type="number" name="vida" id="vida" required>
-
-                    <p><label for="movimiento">Movimiento</label></p>
-                    <input type="number" name="movimiento" id="movimiento" required>
-
-                    <p><label for="nivelI">Nivel</label></p>
-                    <input type="number" name="nivel" id="nivelI" required>
-
-                    <p><label for="clase">Clase</label></p>
-                    <input type="text" name="clase" id="clase" required>
-
-                    <p><label for="experiencia">Experiencia</label></p>
-                    <input type="number" name="experiencia" id="experiencia" required>
-
-                </section>
+                    <label for="nombre">Nombre del personaje</label>
+                </div>
                 <section>
-                    <h2>Atributos</h2>
-                    <p><label for="fuerza">Fuerza</label></p>
-                    <input type="number" name="fuerza" id="fuerza" min="1" max="20" required>
-                    <p><label for="destreza">Destreza</label></p>
-                    <input type="number" name="destreza" id="destreza" min="1" max="20" required>
-                    <p><label for="constitucion">Constitución</label></p>
-                    <input type="number" name="constitucion" id="constitucion" min="1" max="20" required>
-                    <p><label for="inteligencia">Inteligencia</label></p>
-                    <input type="number" name="inteligencia" id="inteligencia" min="1" max="20" required>
-                    <p><label for="sabiduria">Sabiduría</label></p>
-                    <input type="number" name="sabiduria" id="sabiduria" min="1" max="20" required>
-                    <p><label for="carisma">Carisma</label></p>
-                    <input type="number" name="carisma" id="carisma" min="1" max="20" required>
-                </section>
+                    <div>
+                        <input type="text" name="clase" id="clase" required>
+                        <label for="clase">Clase</label>
 
-                <section>
-                    <h2>Competencias</h2>
-                    <p><label for="bonificador">Bonificador</label></p>
-                    <input type="number" name="bonificador" id="bonificador" required>
-                    <p>Salvaciones</p>
-                    <input type="checkbox" name="atributofuerza" id="atributofuerza" value="fuerza">
-                    <label for="atributofuerza">Fuerza</label>
-                    <p></p>
-                    <input type="checkbox" name="atributodestreza" id="atributodestreza" value="destreza">
-                    <label for="atributodestreza"> Destreza</label>
-                    <p></p>
-                    <input type="checkbox" name="atributoconstitucion" id="atributoconstitucion" value="constitucion">
-                    <label for="atributoconstitucion"> Constitución</label>
-                    <p></p>
-                    <input type="checkbox" name="atributointeligencia" id="atributointeligencia" value="inteligencia">
-                    <label for="atributointeligencia"> Inteligencia</label>
-                    <p></p>
-                    <input type="checkbox" name="atributosabiduria" id="atributosabiduria" value="sabiduria">
-                    <label for="atributosabiduria"> Sabiduría</label>
-                    <p></p>
-                    <input type="checkbox" name="atributocarisma" id="atributocarisma" value="carisma">
-                    <label for="atributocarisma"> Carisma</label>
-                    <p></p>
-                    <h3><label for="idioma">Idiomas</label></h3>
-                    <input type="button" onclick="generador.añadirIdioma()" value="Añadir idioma" id="idiomas">
-                    <p><input type="text" name="idioma" id="idioma" required></p>
+                        <input type="number" name="nivel" id="nivel" required>
+                        <label for="nivel">Nivel</label>
+                    </div>
+                    <div>
+                        <input type="text" name="transfondo" id="transfondo" required>
+                        <label for="transfondo">Transfondo</label>
+                    </div>
+                    <div>
+                        <input type="text" name="nombreJugador" id="nombreJugador" required>
+                        <label for="nombreJugador">Nombre</label>
+                    </div>
+                    <div>
+                        <input type="text" name="raza" id="raza" required>
+                        <label for="raza">Raza</label>
+                    </div>
+                    <div>
+                        <input type="text" name="alinemiento" id="alinemiento" required>
+                        <label for="alinemiento">Alinemiento</label>
+                    </div>
+                    <div>
+                        <input type="number" name="experiencia" id="experiencia" required>
+                        <label for="experiencia">Experiencia</label>
+                    </div>
                 </section>
-                <section>
-                    <h2>Inventario</h2>
-                    <input type="button" onclick="generador.añadirObjeto()" value="Añadir objeto" id="inventario">
-                </section>
-                <section>
-                    <h2>Magias</h2>
-                    <p><label for="atrMag">Atributo mágico</label></p>
-                    <input type="text" name="atrMag" id="atrMag" required>
-                    <p><label for="salMag">Salvación mágica</label></p>
-                    <input type="number" name="salMag" id="salMag" required>
-                    <p><label for="bofMag">Bonificador</label></p>
-                    <input type="number" name="bofMag" id="bofMag" required>
-                    <input type="button" onclick="generador.añadirNivel()" value="Añadir Nivel" id="nivel">
-                </section>
-                <p>
-                    <input type="submit" id="fin" value="Crear"></p>
-            </form>
-        </section>
-    </main>
+            </section>
+            <section id="carats">
+                <h2>Características</h2>
+                <div id="Caracteristicas">
+                    <section>
+                        <label for="fuerza">Fuerza</label>
+                        <p id="modFuerza"></p>
+                        <input type="number" name="fuerza" id="fuerza" max="30" min="1" required>
+                    </section>
+                    <section>
+                        <label for="destreza">Destreza</label>
+                        <p id="modDestreza"></p>
+                        <input type="number" name="destreza" id="destreza" max="30" min="1" required>
+                    </section>
+                    <section>
+                        <label for="constitucion">Constitucion</label>
+                        <p id="modConstitucion"></p>
+                        <input type="number" name="constitucion" id="constitucion" max="30" min="1" required>
+                    </section>
+                    <section>
+                        <label for="inteligencia">Inteligencia</label>
+                        <p id="modInteligencia"></p>
+                        <input type="number" name="inteligencia" id="inteligencia" max="30" min="1" required>
+                    </section>
+                    <section>
+                        <label for="sabiduria">Sabiduria</label>
+                        <p id="modSabiduria"></p>
+                        <input type="number" name="sabiduria" id="sabiduria" max="30" min="1" required>
+                    </section>
+                    <section>
+                        <label for="carisma">Carisma</label>
+                        <p id="modCarisma"></p>
+                        <input type="number" name="carisma" id="carisma" max="30" min="1" required>
+                    </section>
+                </div>
+                <div id="Habilidades">
+                    <section>
+                        <label for="bonificador">Bonificador por competencia</label></p>
+                        <input type="number" name="bonificador" id="bonificador" max="6" min="2" required>
+                    </section>
+                    <section>
+                        <h3>Salvaciones</h3>
+                        <p>
+                            <input type="checkbox" name="salFuerza" id="salFuerza" value="fuerza">
+                            <input type="number" id="salFuerzaNum" min="-5" max="20" readonly>
+                            <label for="salFuerza">Fuerza</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="salDestreza" id="salDestreza" value="destreza">
+                            <input type="number" id="salDestrezaNum" min="-5" max="20" readonly>
+                            <label for="salDestreza"> Destreza</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="salConstitucion" id="salConstitucion" value="constitucion">
+                            <input type="number" id="salConstitucionNum" min="-5" max="20" readonly>
+                            <label for="salConstitucion"> Constitucion</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="salInteligencia" id="salInteligencia" value="inteligencia">
+                            <input type="number" id="salInteligenciaNum" min="-5" max="20" readonly>
+                            <label for="salInteligencia"> Inteligencia</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="salSabiduria" id="salSabiduria" value="sabiduria">
+                            <input type="number" id="salSabiduriaNum" min="-5" max="20" readonly>
+                            <label for="salSabiduria"> Sabiduria</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="salCarisma" id="salCarisma" value="carisma">
+                            <input type="number" id="salCarismaNum" min="-5" max="20" readonly>
+                            <label for="salCarisma"> Carisma</label>
+                        </p>
+                    </section>
 
-    <footer>
-        <a href="https://validator.w3.org/check?uri=referer">
-            <img src="https://www.w3.org/html/logo/badge/html5-badge-h-solo.png" alt="HTML5 Válido" title="HTML5 Válido"
-                height="64" width="63" />
-        </a>
+                    <section>
+                        <h3>Habilidades</h3>
+                        <p>
+                            <input type="checkbox" name="acrobacias" id="acrobacias" value="acrobacias">
+                            <input type="number" id="acrobaciasNum" min="-5" max="20" readonly>
+                            <label for="acrobacias">Acrobacias (Des)</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="atletismo" id="atletismo" value="atletismo">
+                            <input type="number" id="atletismoNum" min="-5" max="20" readonly>
+                            <label for="atletismo">Atletismo (Fue)</label>
+                        </p>
 
-        <a href="http://jigsaw.w3.org/css-validator/check/referer">
-            <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss"
-                alt="¡CSS Válido!" />
-        </a>
+                        <p>
+                            <input type="checkbox" name="cArcano" id="cArcano" value="cArcano">
+                            <input type="number" id="cArcanoNum" min="-5" max="20" readonly>
+                            <label for="cArcano">C. Arcano (Int)</label>
+                        </p>
 
-    </footer>
+                        <p>
+                            <input type="checkbox" name="engaño" id="engaño" value="engaño">
+                            <input type="number" id="engañoNum" min="-5" max="20" readonly>
+                            <label for="engaño">Engaño (Car)</label>
+                        </p>
+
+                        <p>
+                            <input type="checkbox" name="historia" id="historia" value="historia">
+                            <input type="number" id="historiaNum" min="-5" max="20" readonly>
+                            <label for="historia">Historia (Int)</label>
+                        </p>
+
+                        <p>
+                            <input type="checkbox" name="interpretacion" id="interpretacion" value="interpretacion">
+                            <input type="number" id="interpretacionNum" min="-5" max="20" readonly>
+                            <label for="interpretacion">Interpretación (Car)</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="intimidacion" id="intimidacion" value="intimidacion">
+                            <input type="number" id="intimidacionNum" min="-5" max="20" readonly>
+                            <label for="intimidacion">Intimidación (Car)</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="investigacion" id="investigacion" value="investigacion">
+                            <input type="number" id="investigacionNum" min="-5" max="20" readonly>
+                            <label for="investigacion">Investigación (Int)</label>
+                        </p>
+
+                        <p>
+                            <input type="checkbox" name="juegoManos" id="juegoManos" value="juegoManos">
+                            <input type="number" id="juegoManosNum" min="-5" max="20" readonly>
+                            <label for="juegoManos">Juego de Manos (Des)</label>
+                        </p>
+
+                        <p>
+                            <input type="checkbox" name="medicina" id="medicina" value="medicina">
+                            <input type="number" id="medicinaNum" min="-5" max="20" readonly>
+                            <label for="medicina">Medicina (Sab)</label>
+                        </p>
+
+                        <p>
+                            <input type="checkbox" name="naturaleza" id="naturaleza" value="naturaleza">
+                            <input type="number" id="naturalezaNum" min="-5" max="20" readonly>
+                            <label for="naturaleza">Naturaleza (Int)</label>
+                        </p>
+
+                        <p>
+                            <input type="checkbox" name="percepcion" id="percepcion" value="percepcion">
+                            <input type="number" id="percepcionNum" min="-5" max="20" readonly>
+                            <label for="percepcion">Percepción (Sab)</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="perspicacia" id="perspicacia" value="perspicacia">
+                            <input type="number" id="perspicaciaNum" min="-5" max="20" readonly>
+                            <label for="perspicacia">Perspicacia (Sab)</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" name="persuasion" id="persuasion" value="persuasion">
+                            <input type="number" id="persuasionNum" min="-5" max="20" readonly>
+                            <label for="persuasion">Persuasión (Car)</label>
+                        </p>
+
+                        <p>
+                            <input type="checkbox" name="religion" id="religion" value="religion">
+                            <input type="number" id="religionNum" min="-5" max="20" readonly>
+                            <label for="religion">Religión (Int)</label>
+                        </p>
+
+                        <p>
+                            <input type="checkbox" name="sigilo" id="sigilo" value="sigilo">
+                            <input type="number" id="sigiloNum" min="-5" max="20" readonly>
+                            <label for="sigilo">Sigilo (Des)</label>
+                        </p>
+
+                        <p>
+                            <input type="checkbox" name="supervivencia" id="supervivencia" value="supervivencia">
+                            <input type="number" id="supervivenciaNum" min="-5" max="20" readonly>
+                            <label for="supervivencia">Supervivencia (Sab)</label>
+                        </p>
+
+                        <p>
+                            <input type="checkbox" name="tAnimales" id="tAnimales" value="tAnimales">
+                            <input type="number" id="tAnimalesNum" min="-5" max="20" readonly>
+                            <label for="tAnimales">T. con Animales (Sab)</label>
+                        </p>
+                    </section>
+                </div>
+            </section>
+
+
+            <section>
+                <h2>Competencias</h2>
+
+
+                <h3><label for="idioma">Idiomas</label></h3>
+                <input type="button" onclick="generador.añadirIdioma()" value="Añadir idioma" id="idiomas">
+                <p><input type="text" name="idioma" id="idioma" required></p>
+            </section>
+            <section>
+                <h2>Iventario</h2>
+                <input type="button" onclick="generador.añadirObjeto()" value="Añadir objeto" id="inventario">
+            </section>
+            <section>
+                <h2>Magias</h2>
+                <p><label for="atrMag">Atributo magico</label></p>
+                <input type="text" name="atrMag" id="atrMag" required>
+                <p><label for="salMag">Salvacion magica</label></p>
+                <input type="number" name="salMag" id="salMag" required>
+                <p><label for="bofMag">Bonificador</label></p>
+                <input type="number" name="bofMag" id="bofMag" required>
+                <input type="button" onclick="generador.añadirNivel()" value="Añadir Nivel" id="nivel">
+            </section>
+            <p>
+                <input type="submit" id="fin" value="Crear"></p>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <a href="https://validator.w3.org/check?uri=referer">
+        <img src="https://www.w3.org/html/logo/badge/html5-badge-h-solo.png" alt="HTML5 Válido" title="HTML5 Válido"
+             height="64" width="63"/>
+    </a>
+
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss"
+             alt="¡CSS Válido!"/>
+    </a>
+</footer>
 
 </body>

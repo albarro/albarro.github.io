@@ -91,10 +91,4 @@ h3{
     font-size: 1.3em;
 }
 
-/* especifidad 2 */
-p::first-letter{
-    font-size: 1.1em;
-    font-weight: bold;
-}
-
 

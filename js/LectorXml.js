@@ -6,7 +6,7 @@ class Lector {
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
+      if (this.readyState === 4 && this.status === 200) {
         elem.leerXml(this);
         elem.cargarSection();
       } else {
@@ -37,6 +37,7 @@ class Lector {
     let personajes = xmldoc.getElementsByTagName("personaje");
     this.perjs = [];
 
+
     for (let i = 0; i < personajes.length; i++) {
       let personaje = personajes.item(i);
 
@@ -49,6 +50,7 @@ class Lector {
       let alinemiento = personaje.getElementsByTagName("alinemiento").item(0)
         .firstChild.data;
 
+
       let vida = personaje.getElementsByTagName("vida").item(0).firstChild.data;
       let movimiento = personaje.getElementsByTagName("movimiento").item(0)
         .firstChild.data;
@@ -59,6 +61,7 @@ class Lector {
         .data;
       let experiencia = personaje.getElementsByTagName("experiencia").item(0)
         .firstChild.data;
+
 
       let atributos = personaje.getElementsByTagName("atributos").item(0);
 
@@ -153,14 +156,12 @@ class Lector {
 
       magias = new Magias(atri, sal, bon, niveles);
 
-
       let per = new Personaje(
         nombre,
         raza,
         descripcion,
         transfondo,
         alinemiento,
-        null,
         vida,
         movimiento,
         nivel,
@@ -169,9 +170,7 @@ class Lector {
         atributos,
         competencias,
         inventario,
-        magias,
-        null,
-        null
+        magias
       );
 
       this.perjs.push(per);
