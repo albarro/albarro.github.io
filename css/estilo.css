@@ -9,26 +9,39 @@ body{
 /* especifidad 2 */
 nav ul{
     display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
+    flex-wrap: wrap;
 
     list-style: none;
-    margin: 0; 
     background-color: rgb(65, 65, 65);
+
+    border: 5px solid rgb(12, 12, 12);
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
 }
 
-/* especifidad 3 */
+/* especificidad 002 */
+nav li{
+    padding: 0;
+}
+
+/* especificidad 003 */
 nav li a {
     display: block;
     padding: 1em;
-    color: white;
     text-decoration: none;
 }
 
-/* especifidad 13 */
+/* especificidad 013 */
 nav li a:hover {
-    background-color: rgb(48,40,100);
+    background-color: rgb(48, 48, 48);
 }
+
+/* especificidad 013 */
+nav li a.actual {
+    background-color: rgb(48, 48, 48);
+}
+
 
 /* especifidad 1 */ 
 section{

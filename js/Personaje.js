@@ -1,61 +1,72 @@
 "use strict";
 
 class Personaje {
-    constructor(nombre, clase, nivel, transfondo, nombreJugador, raza, alinemiento, experiencia, personalidad,
-                ideales, vinculos, defectos, rasgos, compEIdiomas, edad, altura, peso, ojos, piel, pelo, aspectoImg,
-                historia, aliados, carteristicas) {
-
-        this.nombre = nombre;
-
-        this.clase = clase;
-        this.nivel = nivel;
-        this.transfondo = transfondo;
-        this.nombreJugador = nombreJugador;
-
-        this.raza = raza;
-        this.alinemiento = alinemiento;
-        this.experiencia = experiencia;
-
-        this.personalidad = personalidad;
-        this.ideales = ideales;
-        this.vinculos = vinculos;
-        this.defectos = defectos;
-
-        this.rasgos = rasgos;
-        this.compEIdiomas = compEIdiomas;
-
-        this.edad = edad;
-        this.altura = altura;
-        this.peso = peso;
-        this.ojos = ojos;
-        this.piel = piel;
-        this.pelo = pelo;
-
-        this.aspectoImg = aspectoImg;
-
-        this.historia = historia;
-
-        this.aliados = aliados;
-
-        this.carteristicas = carteristicas;
-        //TODO Añadir a los parametros
-        this.inventario = inventario;
-        this.magias = magias;
+    constructor() {
+        this.registros = [];
     }
 
+    addRegistro(registro){
+        this.registros.push(registro);
+    }
+
+    toString(){
+        let texto = 'Personaje \n';
+        for (const registro of this.registros) {
+            texto += registro.toString() + "\n";
+        }
+
+        return texto;
+    }
+    //TODO Los campos no deberian usar el nombre sino una etiqueta
+    toXml(){
+        let xml = "<personaje>";
+        for (const registro of this.registros) {
+            xml += registro.toXml();
+        }
+        xml += "</personaje>";
+
+        return xml;
+    }
 
 }
 
-//TODO Encontrar forma de guardar competencia valor y modificador
+const registros ={
+    NOMBRE: {TEXTO:'Nombre del personaje',ID:'nombre'},
+    CLASE: {TEXTO:'Clase',ID:'clase'},
+    NIVEL: {TEXTO:'Nivel',ID:'nivel'},
+    TRASFONDO: {TEXTO:'Trasfondo',ID:'trasfondo'},
+    NOMBRE_JUGADOR: {TEXTO:'Nombre del jugador',ID:'nombre_jugador'},
+    RAZA: {TEXTO:'Raza',ID:'raza'},
+    ALINEAMIENTO: {TEXTO:'Alineamiento',ID:'alineamiento'},
+    EXPERIENCIA:  {TEXTO:'Experiencia',ID:'experiencia'}
+}
+
+
+class RegistroTexto{
+    constructor(registro, contenido) {
+        this.nombre = registro.TEXTO;
+        this.etiqueta = registro.ID;
+        this.contenido = contenido;
+    }
+
+    toString(){
+        return "" + this.nombre + ": " + this.contenido;
+    }
+
+    toXml(){
+        return "<" + this.etiqueta + ">" + this.contenido + "</" + this.etiqueta + ">";
+    }
+}
+
 class Caracteristicas {
     constructor(fuerzaPunt, destrezaPunt, constitucionPunt, inteligenciaPunt,
-                sabiduriaPunt, carismaPunt, bonificador) {
-        this.fuerza = new Caracteristica(caracts.FUERZA, fuerzaPunt);
-        this.destreza = new Caracteristica(caracts.DESTREZA, destrezaPunt);
-        this.constitucion = new Caracteristica(caracts.CONSTITUCION, constitucionPunt);
-        this.inteligencia = new Caracteristica(caracts.INTELIGENCIA, inteligenciaPunt);
-        this.sabiduria = new Caracteristica(caracts.SABIDURIA, sabiduriaPunt);
-        this.carisma = new Caracteristica(caracts.CARISMA, carismaPunt);
+                sabiduriaPunt, carismaPunt, bonificador, habilidades) {
+        this.fuerza = new RegistroCaracterística(caracts.FUERZA, fuerzaPunt);
+        this.destreza = new RegistroCaracterística(caracts.DESTREZA, destrezaPunt);
+        this.constitucion = new RegistroCaracterística(caracts.CONSTITUCION, constitucionPunt);
+        this.inteligencia = new RegistroCaracterística(caracts.INTELIGENCIA, inteligenciaPunt);
+        this.sabiduria = new RegistroCaracterística(caracts.SABIDURIA, sabiduriaPunt);
+        this.carisma = new RegistroCaracterística(caracts.CARISMA, carismaPunt);
 
         this.bonificador = bonificador;
 
@@ -140,10 +151,16 @@ const habils = {
     PERSUASION: 'Persuasión'
 }
 
-class Caracteristica{
-    constructor(nombre,puntuacion){
+class RegistroCaracterística{
+    constructor(nombre,puntuación){
         this.nombre = nombre;
-        this.setPuntuacion(puntuacion);
+        this.setPuntuacion(puntuación);
+
+        this.habilidades = [];
+    }
+
+    addHabilidad(habilidad){
+        this.habilidades.push(habilidad);
     }
 
     getNombre(){
@@ -193,6 +210,16 @@ class Habilidad{
     }
 }
 
+class PercepcionPasiva extends Habilidad{
+    constructor(sabiduria){
+        super('Percepcion pasiva',sabiduria, null);
+    }
+
+    getModificador(){
+        return this.caracteristica.getModificador() + 10;
+    }
+}
+
 class Bonificador{
     constructor(bono){
         this.setBono(bono);
@@ -213,140 +240,3 @@ class Bonificador{
 }
 
 
-class Objeto {
-    constructor(nombre, descripcion) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-    }
-
-    texto() {
-        let texto = "<dt>" + this.nombre + "</dt>";
-        texto += "<dd>Descripcion: " + this.descripcion + "</dd>";
-        return texto;
-    }
-
-    xml() {
-        let xml = '<objeto nombre="' + this.nombre + '">';
-        xml += "<descripcion>" + this.descripcion + "</descripcion>";
-        xml += "</objeto>";
-        return xml;
-    }
-}
-
-class Inventario {
-    constructor(objetos) {
-        this.objetos = objetos;
-    }
-
-    texto() {
-        let texto = "<section>";
-
-        texto += "<h4>Inventario</h4>";
-        for (let i = 0; i < this.objetos.length; i++) {
-            texto += this.objetos[i].texto();
-        }
-        texto += "</section>";
-        return texto;
-    }
-
-    xml() {
-        let xml = "<inventario>";
-        for (let i = 0; i < this.objetos.length; i++) {
-            xml += this.objetos[i].xml();
-        }
-        xml += "</inventario>";
-        return xml;
-    }
-}
-
-class Magias {
-    constructor(atributo, salvacion, bonificador, nivelesMagia) {
-        this.atributo = atributo;
-        this.salvacion = salvacion;
-        this.bonificador = bonificador;
-
-        this.nivelesMagia = nivelesMagia;
-    }
-
-    texto() {
-        let texto = "<section>";
-        texto += "<h4>Magias</h4>";
-        texto += "<p>Atributo magico: " + this.atributo + "</p>";
-        texto += "<p>Salvacion magica: " + this.salvacion + "</p>";
-        texto += "<p>Bonificador magico: " + this.bonificador + "</p>";
-        for (let i = 0; i < this.nivelesMagia.length; i++) {
-            texto += this.nivelesMagia[i].texto();
-        }
-        texto += "</section>";
-        return texto;
-    }
-
-    xml() {
-        let xml = "<magias>";
-        xml += "<atributo>" + this.atributo + "</atributo>";
-        xml += "<salvacion>" + this.salvacion + "</salvacion>";
-        xml += "<bonificador>" + this.salvacion + "</bonificador>";
-        this.nivelesMagia.forEach((nivel) => {
-            xml += nivel.xml();
-        });
-        xml += "</magias>";
-
-        return xml;
-    }
-}
-
-class NivelMagia {
-    constructor(nivel, usos, magias) {
-        this.nivel = nivel;
-        this.usos = usos;
-        this.magias = magias;
-    }
-
-    texto() {
-        let texto = "<section>";
-        texto += "<p>Nivel: " + this.nivel + "</p> <p>Usos: " + this.usos + "</p>";
-        texto += "<h5>Magias:</h5>";
-        for (let i = 0; i < this.magias.length; i++) {
-            texto += this.magias[i].texto();
-        }
-        texto += "</section>";
-        return texto;
-    }
-
-    xml() {
-        let xml = '<nivelMagia n="' + this.nivel + '">';
-        xml += "<usos>" + this.usos + "</usos>";
-        this.magias.forEach((magia) => {
-            xml += magia.xml();
-        });
-        xml += "</nivelMagia>";
-
-        return xml;
-    }
-}
-
-class Magia {
-    constructor(nombre, descripcion, componentes) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-
-        this.componentes = componentes;
-
-    }
-
-    texto() {
-        let texto = "<h6>" + this.nombre + "</h6>";
-        texto += "<p> Descripcion: " + this.descripcion + "</p>";
-        texto += "<p> Componentes: " + this.componentes + "</p>";
-        return texto;
-    }
-
-    xml() {
-        let xml = '<magia nombre="' + this.nombre + '">';
-        xml += "<descripcion>" + this.descripcion + "</descripcion>";
-        xml += "<componentes>" + this.componentes + "</componentes>";
-        xml += "</magia>";
-
-        return xml;
-    }
-}

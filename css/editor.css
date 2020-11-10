@@ -1,9 +1,93 @@
-form{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: stretch;
-    align-content: stretch;
-    
+/* especifidad 1 */
+div {
+    border: 5px solid rgb(12, 12, 12);
+    border-radius: 5px;
+    padding: 2px 10px;
+
+    background-color: rgb(65, 65, 65);
+
+    margin: 10px 2px;
 }
 
+.cabecera {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+
+    border: 0 none;
+    padding: 0;
+    margin: 0;
+}
+
+.hijoCabecera {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+}
+
+/* div donde estan los principales atributos del personaje */
+.principal {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+
+    border: 0 none;
+    padding: 0;
+    margin: 0;
+}
+
+/*Separadores sin bordes, ni padding ni margenes */
+.separador {
+    border: 0 none;
+    padding: 0;
+    margin: 0;
+}
+
+/*Separadores sin bordes, ni padding ni margenes */
+.separadorAtributo {
+    display: flex;
+
+    border: 0 none;
+    padding: 2px;
+    margin: 0;
+
+    white-space: nowrap;
+}
+
+/*Celdas con alineamiento vertical y contenidos centrados */
+.celdaCentrada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 2px;
+}
+
+/* div de los modificadores y habilidades */
+div #habilidades {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+}
+
+/*inputs de numeros pequeños */
+input[type="number"] {
+    width: 5ch;
+}
+
+/*inputs de numeros pequeños */
+input[type="text"][readonly] {
+    width: 2ch;
+    padding: 0.5ch;
+    border: 0;
+
+    text-align: center;
+}
+
+/*inputs de texto grandes*/
+textarea {
+    width: 100%;
+    height: 100%;
+
+    resize: none;
+}
