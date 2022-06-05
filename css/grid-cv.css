@@ -1,0 +1,39 @@
+body{
+    display: grid;
+    grid-template-areas: 
+            "header header"
+            "aside content"
+            "footer footer";
+    grid-row-gap: 20px;
+}
+
+header{
+    grid-area: header;
+    display: grid;
+    grid-template-areas: 
+            "name details";
+}
+
+h1{
+    grid-area: name;
+}
+
+address{
+    grid-area: details;
+}
+
+nav{
+    grid-area: nav;
+}
+
+main{
+    grid-area: content;
+}
+
+aside{
+    grid-area: aside;
+}
+
+footer{
+    grid-area: footer;
+}
