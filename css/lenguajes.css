@@ -1,0 +1,11 @@
+.logo {
+    height: auto;
+    max-width: 45px;
+}
+
+meter {
+    background: lightgrey;
+    width: 200px;
+
+    margin: 5%;
+  }
