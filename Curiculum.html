@@ -9,9 +9,12 @@
     <title>CV - Álvaro Alonso Quijada</title>
     <base href="index.html" />
     <link rel="stylesheet" type="text/css" href="css/estiloCV.css" />
-    <link rel="stylesheet" type="text/css" href="css/video.css" />
+    <link rel="stylesheet" type="text/css" href="css/no-video.css" />
     <link rel="stylesheet" type="text/css" href="css/lenguajes.css" />
     <link rel="stylesheet" type="text/css" href="css/grid-cv.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer src="js/Nada.js"></script>
   </head>
 
   <body>
@@ -116,26 +119,33 @@
         </article>
 
         <article>
-          <h3>Ofimática</h3>
-          <p>Word, Excel, PowerPoint, Project, Visio</p>
+          <h3>Uso de programas de ofimática:</h3>
+
+          <ul>
+            <li>Word</li>
+            <li>Excel</li>
+            <li>PowerPoint</li>
+            <li>Project</li>
+            <li>Visio</li>
+          </ul>
         </article>
 
         <article>
-          <h3>multimedia</h3>
-          <p>Sony Vegas 13, DaVinci Resolve 16, KdenLive</p>
-          <p>Gimp</p>
+          <h3>Experiencia con programas de edición de multimedia:</h3>
+          
+          <ul>
+            <li>Sony Vegas 13</li>
+            <li>DaVinci Resolve 16</li>
+            <li>KdenLive</li>
+            <li>Gimp</li>
+            <li>Audacity</li>
+          </ul>
         </article>
 
         <article>
           <h3>Carné de conducir</h3>
           <p>Categoría B</p>
         </article>
-
-        <article>
-          <h3>Soft skills</h3>
-          <p>Cosas que cosas</p>
-        </article>
-
       </section>
     </main>
 
@@ -146,7 +156,7 @@
 
       <section>
         <div>
-          <img
+         <img
             class="logo"
             src="multimedia/cv/java (Teléfono).png"
             alt="Java"
@@ -168,12 +178,13 @@
           <meter value="5" max="5" title="5 sobre 5">5 sobre 5</meter>
         </div>
         <div>
-          <img
+          <a onclick="doNothing();"><img
             class="logo"
             src="multimedia/cv/js (Teléfono).png"
             alt="JavaScript"
             title="JavaScript"
           />
+        </a>
         </div>
         <div>
           <meter value="5" max="5" title="5 sobre 5">5 sobre 5</meter>
@@ -299,7 +310,7 @@
           <meter value="3.5" max="5" title="3.5 sobre 5">3.5 sobre 5</meter>
         </div>
         <div>
-          <p>XML</p>
+          <p>&lt;XML&gt;</p>
         </div>
         <div>
           <meter value="3" max="5" title="3 sobre 5">3 sobre 5</meter>
@@ -329,17 +340,46 @@
       </section>
 
       <h3>Motores gráficos</h3>
-
-      <p>Unreal Engine</p>
-      <p>Cocos2d</p>
-      <p>Godot Engine</p>
+      <section>
+        <div>
+          <img
+            class="logo"
+            src="multimedia/cv/unreal.png"
+            alt="Unreal Engine"
+            title="Unreal Engine"
+          />
+        </div>
+        <div>
+          <meter value="3" max="5" title="3 sobre 5">3 sobre 5</meter>
+        </div>
+        <div>
+          <img
+            class="logo"
+            src="multimedia/cv/cocos2d.png"
+            alt="Cocos2d"
+            title="Cocos2d"
+          />
+        </div>
+        <div>
+          <meter value="2.5" max="5" title="2.5 sobre 5">2.5 sobre 5</meter>
+        </div>
+        <div>
+          <img
+            class="logo"
+            src="multimedia/cv/godot.png"
+            alt="Godot Engine"
+            title="Godot Engine"
+          />
+        </div>
+        <div>
+          <meter value="2.5" max="5" title="2.5 sobre 5">2.5 sobre 5</meter>
+        </div>
+      </section>
     </aside>
 
-    <footer>
-      <video width="320" height="240" autoplay controls>
-        <source src="multimedia/cv/noot.mp4" type="video/mp4" />
-        Oh no is broken
-      </video>
-    </footer>
+    <video id="secret">
+      <source src="multimedia/cv/noot.mp4" type="video/mp4" />
+    </video>
+
   </body>
 </html>
