@@ -1,11 +1,30 @@
 .logo {
     height: auto;
-    max-width: 45px;
+    max-width: 45px;    
 }
 
+/* Meter no es el mejor pero es la implementación del estándar
+    que mas me pega */
 meter {
-    background: lightgrey;
-    width: 200px;
+    width: 6em;
+    height: 1.5em;
+}
 
-    margin: 5%;
-  }
+/* especifidad 1 */ 
+aside > section{
+    border-top: 0px;
+    border-bottom: 0px;
+
+    background-color: #00000000;
+
+    display: grid;
+    grid-template-areas: 
+            "div div";
+}
+
+section > div{
+    margin-top: 1em;
+
+    display: grid;
+    place-items: center;
+}

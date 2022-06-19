@@ -37,3 +37,14 @@ aside{
 footer{
     grid-area: footer;
 }
+
+.grid-2-col{
+    display: grid;
+    grid-template-areas:
+            "title title" 
+            "... ..."
+}
+
+.grid-2-col > h2{
+    grid-area: title;
+}
