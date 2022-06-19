@@ -2,12 +2,12 @@
 $('#secret').hide();
 
 function doNothing(){
-    $('#secret').show();
+    $('#secret').show(500);
 
     $('#secret').trigger('play');
 
     setTimeout(function(){
-        $('#secret').hide();
-    }, 10000);
+        $('#secret').hide(500);
+    }, 9500);
 }
 
