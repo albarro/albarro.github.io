@@ -9,9 +9,7 @@ body{
 
 header{
     grid-area: header;
-    display: grid;
-    grid-template-areas: 
-            "name details";
+
 }
 
 h1{
@@ -19,7 +17,9 @@ h1{
 }
 
 address{
-    grid-area: details;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 nav{
