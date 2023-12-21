@@ -1,111 +1,129 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <meta name="author" content="albarro" />
-    <meta name="description" content="Documento de introduccion al sitio web" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pagina principal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Introduccion</title>
     <base href="index.html" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
     <!-- <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <link rel="stylesheet" type="text/css" href="css/grid-main.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+  </head>
 
-</head>
-
-<body>
-
-    <header>
+  <body>
+    <header class="container">
+      <nav>
         <h1>Proyectos</h1>
-
-        <p>
-            Bienvenido a mi archivo de proyectos
-        </p>
+      </nav>
     </header>
 
-    <main>
+    <main class="container">
+      <aside>
+          <ul>
+            <li><a href="#web">Esta pagina</a></li>
+            <li><a href="#bot">Gusbabot</a></li>
+            <li><a href="#editor">Editor de hojas de personaje D&D</a></li>
+            <li><a href="#juego">Free Car</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <div role="document">
+        <h2>Proyectos</h2>
 
         <article>
-            <h2>Proyectos</h2>
+          <h3 id="web">Esta pagina</h3>
 
-            <article>
-                <h3>Esta pagina</h3>
-
-                <p>
-                    Esta pagina se trata de una web de html en conjunto con picoccs
-                </p>
-            </article>
-
-            <article>
-                <h3>Gusbabot</h3>
-
-                <p>
-                    <img
-                      style="height: auto; max-width: 25px;"
-                      src="multimedia/cv/github-mark.svg"
-                      alt="github"
-                      title="github"
-                    /><a href="https://github.com/albarro/bot_telegram">Repositorio</a>
-                  </p>
-                
-                <p>
-                    Se trata de un bot para Telegram para el uso en grupos de rol, con un enfoque desenfadado.
-                </p>
-
-                <p>
-                    Su principal tarea es automatizar la creación de encuestas para decidir qué día y hora esta 
-                    mas gente disponible, aunque también tiene la capacidad de mandar respuestas preprogramadas 
-                    a ciertas palabras y algunas funciones mas variadas. 
-                </p>
-
-                <p>
-                    El bot está programado en NodeJs, con uso de TypeScript y la librería 
-                    <a href="https://www.npmjs.com/package/node-telegram-bot-api">node-telegram-bot-api</a>.
-                </p>
-
-                <p>
-                    Actualmente esta desplegado en una máquina de Oracle Cloud.
-                </p>
-            </article>
-
-            <article>
-                <h3>Editor de hojas de personaje D&D</h3>
-
-                <a target="_blank" href="Editor.html">Enlace al editor</a>
-
-                <p>
-                    Se trata de una sencilla interfaz, en HTML y CSS puros, de hojas de personaje de D&D, tiene código JavaScript 
-                    para realizar de manera automática todos los cálculos de los puntos de habilidades.
-                </p>
-            </article>
-
-            <article>
-                <h3>Free Car</h3>
-
-                <p>
-                    Videojuego desarrollado en Godot y desplegado en esta misma web.
-                </p>
-
-                <p>
-                    Pese a que aun este en desarrollo aqui puedes las versiones existentes:
-                </p>
-
-                <ul>
-                    <li><a target="_blank" href="TEST/test.html">V1</a>, prototipo inicial</li>
-                    <li><a target="_blank" href="TEST/V2/test.html">V2</a>, se crea el sistema de movimiento del personaje principal</li>
-                    <li><a target="_blank" href="TEST/V3/test.html">V3</a>, se crea el sistema de colisiones con los obstáculos, asi como un perseguidor</li>
-                    <li><a target="_blank" href="TEST/V4/test.html">V4</a>, version actual, se crea una interfaz básica, menus de pausa y un nuevo "nivel", ERROR: En ocasiones no se cargan las texturas</li>
-                </ul>
-
-            </article>
+          <p>Esta pagina se trata de una web de html en conjunto con picoccs</p>
         </article>
 
+        <article>
+          <h3 id="bot">Gusbabot</h3>
 
+          <p>
+            <img
+              style="height: auto; max-width: 25px"
+              src="multimedia/cv/github-mark.svg"
+              alt="github"
+              title="github"
+            /><a href="https://github.com/albarro/bot_telegram">Repositorio</a>
+          </p>
+
+          <p>
+            Se trata de un bot para Telegram para el uso en grupos de rol, con
+            un enfoque desenfadado.
+          </p>
+
+          <p>
+            Su principal tarea es automatizar la creación de encuestas para
+            decidir qué día y hora esta mas gente disponible, aunque también
+            tiene la capacidad de mandar respuestas preprogramadas a ciertas
+            palabras y algunas funciones mas variadas.
+          </p>
+
+          <p>
+            El bot está programado en NodeJs, con uso de TypeScript y la
+            librería
+            <a href="https://www.npmjs.com/package/node-telegram-bot-api"
+              >node-telegram-bot-api</a
+            >.
+          </p>
+
+          <p>Actualmente esta desplegado en una máquina de Oracle Cloud.</p>
+        </article>
+
+        <article>
+          <h3 id="editor">Editor de hojas de personaje D&D</h3>
+
+          <a target="_blank" href="Editor.html">Enlace al editor</a>
+
+          <p>
+            Se trata de una sencilla interfaz, en HTML y CSS puros, de hojas de
+            personaje de D&D, tiene código JavaScript para realizar de manera
+            automática todos los cálculos de los puntos de habilidades.
+          </p>
+        </article>
+
+        <article>
+          <h3 id="juego">Free Car</h3>
+
+          <p>
+            Videojuego desarrollado en Godot y desplegado en esta misma web.
+          </p>
+
+          <p>
+            Pese a que aun este en desarrollo aqui puedes las versiones
+            existentes:
+          </p>
+
+          <ul>
+            <li>
+              <a target="_blank" href="TEST/test.html">V1</a>, prototipo inicial
+            </li>
+            <li>
+              <a target="_blank" href="TEST/V2/test.html">V2</a>, se crea el
+              sistema de movimiento del personaje principal
+            </li>
+            <li>
+              <a target="_blank" href="TEST/V3/test.html">V3</a>, se crea el
+              sistema de colisiones con los obstáculos, asi como un perseguidor
+            </li>
+            <li>
+              <a target="_blank" href="TEST/V4/test.html">V4</a>, version
+              actual, se crea una interfaz básica, menus de pausa y un nuevo
+              "nivel", ERROR: En ocasiones no se cargan las texturas
+            </li>
+          </ul>
+        </article>
+      </div>
     </main>
-
-
-</body>
+  </body>
+</html>
