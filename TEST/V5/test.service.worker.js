@@ -3,12 +3,12 @@
 // that they need an Internet connection to run the project if desired.
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
-const CACHE_VERSION = "1703547055|3035280756";
+const CACHE_VERSION = "1703547849|3828944474";
 const CACHE_PREFIX = "Free Caaar-sw-cache-";
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
 const OFFLINE_URL = "test.offline.html";
 // Files that will be cached on load.
-const CACHED_FILES = ["test.html","test.js","test.offline.html","test.icon.png","test.apple-touch-icon.png","test.worker.js","test.audio.worklet.js"];
+const CACHED_FILES = ["test.html","test.js","test.offline.html","test.icon.png","test.apple-touch-icon.png"];
 // Files that we might not want the user to preload, and will only be cached on first load.
 const CACHABLE_FILES = ["test.wasm","test.pck"];
 const FULL_CACHE = CACHED_FILES.concat(CACHABLE_FILES);
