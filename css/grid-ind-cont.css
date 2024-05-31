@@ -1,0 +1,13 @@
+/* Css para las paginas con un indice lateral*/
+main {  
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+  }
+
+main > aside > nav{
+    position: sticky;
+    top: calc(var(--pico-spacing) * 5);;
+}
+  

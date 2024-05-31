@@ -7,36 +7,44 @@
     <meta name="description" content="Pagina principal" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduccion</title>
-    <base href="index.html" />
+    <title>Introducción</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
-    />
-    <!-- <link rel="stylesheet" type="text/css" href="css/estilo.css" />
-    <link rel="stylesheet" type="text/css" href="css/grid-main.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />    
+    <link href="css/header.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
+    <header class="container-fluid">
+      <nav>
+        <ul>
+          <li><strong>albarro.github.io</strong></li>
+        </ul>
+        <ul>
+          <li><a href="#">Introducción</a></li>
+          <li><a href="Proyectos.html">Proyectos</a></li>
+          <li><a href="Curiculum.html">Curriculum</a></li>
+        </ul>
+      </nav>
+    </header>
 
-      <div role="document">
-        <h2>Sobre mi</h2>
+    <main class="container">
+      <h2>Introducción</h2>
 
-        <article>
-          <p>Soy Alvaro, me gusta programar y solucionar problemas con codigo
-            me gusta aprender, 
+      <article>
+        <p>
+          Soy Alvaro, me gusta programar y solucionar problemas con codigo me
+          gusta aprender, En mi tiempo libre practico rugby, vicio y programo
+          cosas como esta web
 
-            En mi tiempo libre practico rugby, vicio y programo cosas como esta web
+          <a href="Proyectos.html">Aqui</a> puedes encontrar mas informacion
+          sobre alguno de mis proyectos
 
-            <a href="Proyectos.html">Aqui</a> puedes encontrar mas informacion sobre alguno de mis proyectos
-
-            <a href="Curiculum.html">Aqui</a> puedes encontrar mi CV si ofreces trabajo colisiones
-          </p>
-        </article>
-
-       
-      </div>
+          <a href="Curiculum.html">Aqui</a> puedes encontrar mi CV si ofreces
+          trabajo colisiones
+        </p>
+      </article>
     </main>
   </body>
 </html>

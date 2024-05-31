@@ -1,0 +1,9 @@
+header{
+    position: sticky;
+    top: 0;
+
+    backdrop-filter: blur(15px);
+
+    background-color: var(--pico-background-color);
+    opacity: 0.9;
+}
