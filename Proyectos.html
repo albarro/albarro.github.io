@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="albarro" />
+    <meta name="description" content="Pagina proyectos" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Proyectos</title>
+    <base href="index.html" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <!-- <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="css/grid-main.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+  </head>
+
+  <body>
+    <header class="container">
+      <nav>
+        <h1>Proyectos</h1>
+      </nav>
+    </header>
+
+    <main class="container">
+      <aside>
+          <ul>
+            <li><a href="#bot">Gusbabot</a></li>
+            <li><a href="#editor">Editor de hojas de personaje D&D</a></li>
+            <li><a href="#desafios">Desafíos CodinGame</a></li>
+            <li><a href="#juego">Free Car</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <div role="document">
+        <h2>Proyectos</h2>
+
+        <article>
+          <h3 id="bot">Gusbabot</h3>
+
+          <p>
+            <img
+              style="height: auto; max-width: 25px"
+              src="multimedia/cv/github-mark.svg"
+              alt="github"
+              title="github"
+            /><a href="https://github.com/albarro/bot_telegram">Repositorio</a>
+          </p>
+
+          <p>
+            Un bot para Telegram escrito en TypeScript usando NodeJs y 
+            utilizando la librería <a href="https://github.com/yagop/node-telegram-bot-api">node-telegram-bot-api</a>
+          </p>
+
+          <p>
+            La principal filosofia detras del bot fue que gran parte de su comportamiento
+            fuera controlado por archivos externos y que permitieran poder adaptar el bot
+            facilmente a diferentes grupos e incluso permitir a usuarios no tecnicos 
+            modificar el comportamiento del mismo.
+          </p>
+          <p>
+            Esto se realizo creando archivos de configuración en json y en el repositorio
+            se encuentran <a href="https://github.com/albarro/bot_telegram/tree/Desarrollo/ficheros">archivos de ejemplo</a> para cada uno
+          </p>
+
+          <p>
+            Para su funcionamiento se desplegó en Oracle Cloud con su tier gratuita,
+            actualmente ya no esta desplegado por las limitaciones de la tier gratuita.
+          </p>
+
+          <h4>Funciones</h4>
+
+          <p>
+            Creado originalmente para automatizar las encuestas para
+            escoger día y hora esta mas gente disponible.
+            [Foto de las encuestas]
+          </p>
+          <p>Los dias son configurables con el archivo opcionesDias.json</p>
+
+          <p>
+            Tambien posee la función de poder activarse
+            con palabras clave y dar respuestas, esta funcion se controla
+            enteramente mediante un fichero json, de esta manera se pueden 
+            añadir nuevas activaciones y respuestas de manera rapida.
+          </p>
+          <p>
+            Estas son controladas por el archivo activaciones.json
+          </p>
+
+          <p>
+            Cuenta con un conversor de divisas para las partidas de rol
+          </p>
+          <p>Se controla con el archivo ******</p>
+
+          <p>También tiene un lanzador de dados personalizado</p>
+
+        </article>
+
+        <article>
+          <h3 id="editor">Editor de hojas de personaje D&D</h3>
+
+          <a target="_blank" href="Editor.html">Enlace al editor</a>
+
+          <p>
+            Se trata de una sencilla interfaz web de hojas de
+            personaje de D&D, tiene la funcionalidad del calculo de habilidades 
+            mediante JavaScript.
+          </p>
+        </article>
+
+        <article>
+          <h3 id="desafios">Desafíos de CodinGame</h3>
+
+          <p>
+            Bot de las pod.
+            Hablar sobre el algoritmo, como lo hice, objetivos y la clasificación
+          </p>
+
+          <p>
+            Bot de kutulu.
+            Hablar sobre el algoritmo, como lo hice, objetivos y la clasificación
+          </p>
+
+          <p>
+            Puzzles y desafios.
+            Hablar de los dificiles que vaya resolviendo
+          </p>
+        </article>
+
+        <article>
+          <h3 id="juego">Free Car</h3>
+
+          <p>
+            Videojuego desarrollado en Godot y desplegado en esta misma web.
+          </p>
+
+          <p>
+            Pese a que aun este en desarrollo aqui puedes las versiones
+            existentes:
+          </p>
+
+          <ul>
+            <li>
+              <a target="_blank" href="TEST/test.html">V1</a>, prototipo inicial
+            </li>
+            <li>
+              <a target="_blank" href="TEST/V2/test.html">V2</a>, se crea el
+              sistema de movimiento del personaje principal
+            </li>
+            <li>
+              <a target="_blank" href="TEST/V3/test.html">V3</a>, se crea el
+              sistema de colisiones con los obstáculos, asi como un perseguidor
+            </li>
+            <li>
+              <a target="_blank" href="TEST/V4/test.html">V4</a>, version
+              actual, se crea una interfaz básica, menus de pausa y un nuevo
+              "nivel", ERROR: En ocasiones no se cargan las texturas
+            </li>
+          </ul>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>
