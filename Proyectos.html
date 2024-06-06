@@ -23,9 +23,21 @@
           <li><strong>albarro.github.io</strong></li>
         </ul>
         <ul>
-          <li><a href="index.html">Introducción</a></li>
-          <li><a href=".">Proyectos</a></li>
-          <li><a href="Curiculum.html">Curriculum</a></li>
+          <li><a class="contrast" href="index.html">Introducción</a></li>
+          <li>
+            <a class="contrast" aria-current="page" href=".">Proyectos</a>
+          </li>
+          <li><a class="contrast" href="Curiculum.html">Curriculum</a></li>
+          <li>
+            <details class="dropdown">
+              <summary role="button" class="secondary">Tema</summary>
+              <ul>
+                <li><a href="#" data-theme-switcher="auto">Por defecto</a></li>
+                <li><a href="#" data-theme-switcher="light">Claro</a></li>
+                <li><a href="#" data-theme-switcher="dark">Oscuro</a></li>
+              </ul>
+            </details>
+          </li>
         </ul>
       </nav>
     </header>
@@ -35,7 +47,6 @@
         <nav>
           <ul>
             <li><a href="#bot">Gusbabot</a></li>
-            <li><a href="#editor">Editor de hojas de personaje D&D</a></li>
             <li><a href="#desafios">Desafíos CodinGame</a></li>
             <li><a href="#juego">Free Car</a></li>
           </ul>
@@ -46,7 +57,9 @@
         <h2>Proyectos</h2>
 
         <article>
-          <h3 id="bot">Gusbabot</h3>
+          <header>
+            <h3 id="bot">Gusbabot</h3>
+          </header>
 
           <p>
             <img
@@ -111,19 +124,11 @@
         </article>
 
         <article>
-          <h3 id="editor">Editor de hojas de personaje D&D</h3>
+          <header>
+            <h3 id="desafios">Desafíos de CodinGame</h3>
+          </header>
 
-          <a target="_blank" href="Editor.html">Enlace al editor</a>
-
-          <p>
-            Se trata de una sencilla interfaz web de hojas de personaje de D&D,
-            tiene la funcionalidad del calculo de habilidades mediante
-            JavaScript.
-          </p>
-        </article>
-
-        <article>
-          <h3 id="desafios">Desafíos de CodinGame</h3>
+          <p>Participacion en distintos desafios de la pagina de CodinGame</p>
 
           <p>
             Bot de las pod. Hablar sobre el algoritmo, como lo hice, objetivos y
@@ -141,11 +146,11 @@
         </article>
 
         <article>
-          <h3 id="juego">Free Car</h3>
+          <header>
+            <h3 id="juego">Free Car</h3>
+          </header>
 
-          <p>
-            Videojuego desarrollado en Godot y desplegado en esta misma web.
-          </p>
+          <p>Videojuego web desarrollado en Godot.</p>
 
           <p>
             Pese a que aun este en desarrollo aqui puedes las versiones
@@ -173,5 +178,8 @@
         </article>
       </div>
     </main>
+
+    <!-- Minimal theme switcher -->
+    <script src="js/theme-switcher.js"></script>
   </body>
 </html>
