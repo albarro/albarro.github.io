@@ -1,17 +1,12 @@
 /* especifidad 1 */ 
 aside > section{
-    border-top: 0px;
-    border-bottom: 0px;
 
     background-color: #00000000;
 
+    font-size: 14pt;
 }
 
-section > div{
-    display: grid;
-    place-items: center;
-}
-
-section > div > p{
-    justify-self: stretch;
+aside > section > div > ul{  
+    list-style: none;
+    font-size: 12pt;
 }
