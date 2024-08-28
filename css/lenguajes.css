@@ -1,27 +1,21 @@
-/* Meter no es el mejor pero es la implementación del estándar
-    que mas me pega */
-meter {
-    width: 6em;
-    height: 1.5em;
-}
-
 /* especifidad 1 */ 
 aside > section{
-    border-top: 0px;
-    border-bottom: 0px;
 
     background-color: #00000000;
+    padding: 0 1em;
 
-    display: grid;
-    grid-template-areas: 
-            "div div";
+    font-size: 14pt;
+
+    section{
+        padding: 0 1em;
+
+        h4{
+            margin-bottom: 0;
+        }
+
+        ul{
+            margin-top: 0;
+        }
+    }
 }
 
-section > div{
-    display: grid;
-    place-items: center;
-}
-
-section > div > p{
-    justify-self: stretch;
-}

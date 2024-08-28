@@ -2,8 +2,7 @@ body{
     display: grid;
     grid-template-areas: 
             "header header"
-            "aside content"
-            "footer footer";
+            "aside content";
     grid-row-gap: 20px;
 }
 
