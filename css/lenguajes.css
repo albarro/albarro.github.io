@@ -2,11 +2,20 @@
 aside > section{
 
     background-color: #00000000;
+    padding: 0 1em;
 
     font-size: 14pt;
+
+    section{
+        padding: 0 1em;
+
+        h4{
+            margin-bottom: 0;
+        }
+
+        ul{
+            margin-top: 0;
+        }
+    }
 }
 
-aside > section > div > ul{  
-    list-style: none;
-    font-size: 12pt;
-}
